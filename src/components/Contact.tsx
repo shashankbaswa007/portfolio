@@ -54,12 +54,12 @@ export default function Contact() {
           </a>
           
           {/* LinkedIn */}
-          <a href="https://linkedin.com/in/shashank-baswa" target="_blank" rel="noopener noreferrer" className="group glass rounded-2xl p-6 flex flex-col items-center text-center hover:bg-white/[0.04] transition-all duration-300 transform hover:-translate-y-1">
+          <a href="https://www.linkedin.com/in/shashank-baswa-27a783301/" target="_blank" rel="noopener noreferrer" className="group glass rounded-2xl p-6 flex flex-col items-center text-center hover:bg-white/[0.04] transition-all duration-300 transform hover:-translate-y-1">
             <div className="w-16 h-16 rounded-full bg-white/[0.02] border border-white/5 flex items-center justify-center text-white/50 group-hover:text-blue-400 group-hover:border-blue-500/30 transition-all duration-300 mb-4 shadow-[0_4px_20px_transparent] group-hover:shadow-[0_4px_20px_rgba(59,130,246,0.15)]">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" /><rect x="2" y="9" width="4" height="12" /><circle cx="4" cy="4" r="2" /></svg>
             </div>
             <span className="block text-xs uppercase tracking-[0.2em] text-white/30 mb-2">LinkedIn</span>
-            <span className="text-base font-light tracking-wide text-white/80 group-hover:text-white transition-colors duration-300">linkedin.com/in/shashank-baswa</span>
+            <span className="text-base font-light tracking-wide text-white/80 group-hover:text-white transition-colors duration-300">linkedin.com/in/shashank-baswa-27a783301</span>
           </a>
 
           {/* GitHub */}
