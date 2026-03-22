@@ -20,8 +20,8 @@ const projects: Project[] = [
   {
     id: 1,
     title: "SmartStyle",
-    description: "Multi-LLM fashion recommendation platform with a dual-model fallback pipeline (Groq primary, Gemini fallback), client-side CV color extraction at 95%+ skin tone accuracy, and a 70-20-10 personalization engine that cut AI costs by 65%.",
-    tags: ["Next.js", "TypeScript", "Llama 3.3", "Gemini 2.0", "Firebase", "Computer Vision"],
+    description: "An AI-driven fashion platform designed to deliver personalized outfit recommendations reliably.\n\nI built a multi-LLM pipeline using Groq as the primary engine with a Gemini fallback, ensuring high uptime. To eliminate server load, I engineered a client-side color extraction system that safely filters skin tones with high accuracy. The result is a fast, personalized experience that keeps inference costs incredibly low.",
+    tags: ["Next.js", "TypeScript", "Llama 3.3", "Gemini 2.0", "Firebase"],
     categories: ["AI/ML", "Full Stack"],
     metric: "85% user satisfaction",
     color: "from-violet-500/20 to-fuchsia-500/20",
@@ -32,7 +32,7 @@ const projects: Project[] = [
   {
     id: 2,
     title: "HireLog",
-    description: "NLP-powered placement intelligence platform that converts unstructured interview data into a FAISS-indexed semantic search knowledge base of 1,000+ questions. Won 1st place at CBIT National Hackathon against 50+ teams. Improved preparation efficiency by 60% for 200+ students.",
+    description: "A semantic search platform that helps students efficiently navigate unstructured placement interview data.\n\nI developed an NLP pipeline that ingests thousands of historical interview queries and indexes them using FAISS for rapid semantic retrieval. Built with a React frontend and PostgreSQL backend, the platform significantly reduced interview preparation time and secured 1st place out of 50+ competing teams at a national hackathon.",
     tags: ["Python", "NLP", "FAISS", "React", "PostgreSQL"],
     categories: ["AI/ML"],
     metric: "1st Place — National Hackathon",
@@ -44,7 +44,7 @@ const projects: Project[] = [
   {
     id: 3,
     title: "Melanoma Detection System",
-    description: "Clinical-grade binary classifier for skin lesion images fine-tuned on 10,000+ dermoscopic images using two-phase transfer learning. Deployed on Hugging Face Spaces with 4-tier risk scoring and real-time confidence output.",
+    description: "A clinical diagnostic tool that classifies skin lesions with high confidence and transparency.\n\nUsing transfer learning, I fine-tuned EfficientNetB3 on a large, imbalanced dataset of dermoscopic images. I then deployed the model as an accessible web interface via Gradio and Hugging Face, returning a clear 4-tier risk score for each uploaded image to assist in preliminary screening.",
     tags: ["TensorFlow", "EfficientNetB3", "Python", "Gradio", "Hugging Face"],
     categories: ["AI/ML"],
     metric: "92% accuracy · 97% AUC",
@@ -56,7 +56,7 @@ const projects: Project[] = [
   {
     id: 4,
     title: "SportsHub",
-    description: "Real-time sports management platform sustaining 50+ concurrent matches with Gemini AI match predictions at 78% accuracy and Firebase sub-100ms sync. Role-based admin dashboard cut coordinator workload by 60%.",
+    description: "A real-time tournament management application built to simplify event coordination.\n\nI architected the platform via Next.js and Firebase to seamlessly sync live match data across dozens of concurrent games. By integrating Gemini to forecast match outcomes and creating a dedicated admin dashboard, the system dramatically reduced manual coordination work while maintaining high user engagement.",
     tags: ["Next.js", "Firebase", "Gemini AI", "Tailwind CSS"],
     categories: ["Full Stack"],
     metric: "500+ users · 95% retention",
@@ -68,8 +68,8 @@ const projects: Project[] = [
   {
     id: 5,
     title: "FinSight",
-    description: "Production-grade FinTech platform with automated anomaly detection reducing financial discrepancies by 35% across $50K+ in tracked transactions. 40+ REST APIs, banking-grade JWT security, Docker containerized with full CI/CD pipeline.",
-    tags: ["Java", "Spring Boot", "React", "MySQL", "JWT", "Docker"],
+    description: "A secure financial tracker designed to automatically flag transaction anomalies.\n\nI designed a Java Spring Boot backend featuring over 40 robust REST APIs secured with JWT authentication. The data layer utilizes MySQL, and the entire ecosystem is containerized via Docker with a strict CI/CD pipeline, ensuring a resilient architecture that effectively reduces financial discrepancies in production.",
+    tags: ["Java", "Spring Boot", "React", "MySQL", "Docker"],
     categories: ["Full Stack"],
     metric: "40+ REST APIs · 85% test coverage",
     color: "from-rose-500/20 to-pink-500/20",
@@ -167,7 +167,7 @@ function ProjectCard({ project }: { project: Project }) {
       animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
       exit={{ opacity: 0, scale: 0.95, filter: "blur(10px)" }}
       transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-      className="group relative rounded-[2rem] bg-white/[0.02] border border-white/5 cursor-pointer overflow-hidden block no-underline"
+      className="group relative rounded-[2rem] bg-white/[0.02] border border-white/5 cursor-pointer overflow-hidden block no-underline transform-gpu"
       whileHover={{ y: -4 }}
       whileTap={{ scale: 0.98 }}
     >
@@ -193,7 +193,7 @@ function ProjectCard({ project }: { project: Project }) {
 
       {/* Static Noise Texture */}
       <div 
-        className="absolute inset-0 opacity-[0.03] mix-blend-overlay pointer-events-none" 
+        className="absolute inset-0 opacity-[0.03] mix-blend-overlay pointer-events-none transform-gpu" 
         style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")` }} 
       />
 
@@ -226,7 +226,7 @@ function ProjectCard({ project }: { project: Project }) {
           </div>
 
           {/* Description */}
-          <p className="text-[15px] md:text-base text-white/50 group-hover:text-white/70 font-light leading-[1.7] transition-colors duration-300 mb-8 max-w-lg">
+          <p className="whitespace-pre-line text-[15px] md:text-base text-white/50 group-hover:text-white/70 font-light leading-[1.7] transition-colors duration-300 mb-8 max-w-lg">
             {project.description}
           </p>
         </div>

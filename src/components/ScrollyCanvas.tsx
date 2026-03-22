@@ -153,7 +153,7 @@ export default function ScrollyCanvas() {
   return (
     <div ref={containerRef} className="absolute inset-0 z-0 w-full h-full pointer-events-none" id="scroll-canvas-container">
       {/* Sticky canvas wrapper */}
-      <div className="sticky top-0 h-screen w-full overflow-hidden bg-[#121212]">
+      <div className="sticky top-0 h-screen w-full overflow-hidden bg-[#121212] transform-gpu" style={{ willChange: "transform" }}>
         {/* Loading indicator with progress */}
         {!isLoaded && (
           <div className="absolute inset-0 z-30 flex items-center justify-center bg-[#121212]">
@@ -177,8 +177,8 @@ export default function ScrollyCanvas() {
         {/* Canvas — flush to viewport edges */}
         <canvas
           ref={canvasRef}
-          className="absolute inset-0 w-full h-full"
-          style={{ background: "#121212" }}
+          className="absolute inset-0 w-full h-full transform-gpu"
+          style={{ background: "#121212", willChange: "transform" }}
         />
 
         {/* 

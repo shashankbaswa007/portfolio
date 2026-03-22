@@ -23,16 +23,31 @@ export default function About() {
             </span>
           </div>
 
-          <div className="space-y-8 text-xl md:text-2xl lg:text-3xl font-light text-white/80 leading-[1.6]">
+          <div className="space-y-6 text-xl md:text-2xl lg:text-3xl font-light text-white/80 leading-[1.6]">
             <p>
-              I am a third-year AI and Data Science student at CBIT, Hyderabad, building things that go beyond coursework — production AI systems, full-stack applications, and tools that real people use.
+              I am a third-year AI and Data Science student at CBIT, Hyderabad, driven by a deep curiosity for how intelligence and engineering intersect. My focus is on building robust full-stack applications and deploying machine learning models that solve practical problems.
             </p>
             <p>
-              I won 1st place at the CBIT National Hackathon, serve as Placement Coordinator and Events Head for my department, and play varsity football and table tennis.
+              From winning 1st place at a national hackathon to serving as my department&apos;s Placement Coordinator, I thrive in environments where execution matters. Whether I am designing semantic search pipelines or leading a team, I care about shipping code that scales and an experience that feels right.
             </p>
-            <p>
-              I am actively looking for software engineering or AI/ML internship opportunities where I can contribute from day one.
-            </p>
+          </div>
+
+          <div className="w-full text-left bg-white/[0.02] border border-white/5 p-8 md:p-10 rounded-3xl backdrop-blur-sm mt-6">
+            <h3 className="text-sm tracking-[0.2em] font-medium text-[#a78bfa] uppercase mb-6">How I Think & Build</h3>
+            <ul className="space-y-5 text-white/70 font-light text-base md:text-lg">
+              <li className="flex items-start gap-4">
+                <span className="text-emerald-400 mt-1 flex-shrink-0">✦</span>
+                <span><strong className="text-white/90 font-medium">AI as a Utility:</strong> I treat machine learning as a tool for creating value, not just an academic exercise. Algorithms should serve the user seamlessly.</span>
+              </li>
+              <li className="flex items-start gap-4">
+                <span className="text-sky-400 mt-1 flex-shrink-0">✦</span>
+                <span><strong className="text-white/90 font-medium">End-to-End Ownership:</strong> I prefer understanding the whole stack—from database schemas and containerization down to the final frontend interactions.</span>
+              </li>
+              <li className="flex items-start gap-4">
+                <span className="text-fuchsia-400 mt-1 flex-shrink-0">✦</span>
+                <span><strong className="text-white/90 font-medium">Pragmatic Problem Solving:</strong> I focus on writing clean, scalable code that addresses real needs without over-engineering the solution.</span>
+              </li>
+            </ul>
           </div>
 
           <motion.div
