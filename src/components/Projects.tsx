@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, memo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 interface Project {
@@ -146,7 +146,7 @@ export default function Projects() {
   );
 }
 
-function ProjectCard({ project }: { project: Project }) {
+const ProjectCard = memo(function ProjectCard({ project }: { project: Project }) {
   const [mouseX, setMouseX] = useState(0);
   const [mouseY, setMouseY] = useState(0);
 
@@ -245,4 +245,4 @@ function ProjectCard({ project }: { project: Project }) {
       </div>
     </motion.a>
   );
-}
+});

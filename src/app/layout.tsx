@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     "Portfolio of Shashank Sai Sri Baswa, a Full-Stack Software Engineer and AI/ML Engineer based in Hyderabad. Building production-grade AI applications.",
   keywords: ["shashank baswa", "software engineer", "full stack developer", "ai engineer", "machine learning", "portfolio"],
   openGraph: {
-    title: "Shashank Baswa — Software & AI Engineer",
+    title: "Shashank Baswa — Full-Stack & AI Engineer",
     description: "Building production-grade AI systems and robust full-stack applications.",
     type: "website",
   },

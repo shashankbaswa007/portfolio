@@ -1,7 +1,78 @@
 "use client";
 
-import { useState } from "react";
+import { useState, memo } from "react";
 import { motion } from "framer-motion";
+
+/* ── Brand SVG Icons ─────────────────────────────────────────────── */
+
+const IBMIcon = () => (
+  <svg viewBox="0 0 48 48" width="28" height="28" fill="none">
+    <g fill="#1F70C1">
+      <rect x="4" y="4" width="10" height="4" />
+      <rect x="4" y="10" width="10" height="4" />
+      <rect x="6" y="16" width="6" height="4" />
+      <rect x="6" y="22" width="6" height="4" />
+      <rect x="4" y="28" width="10" height="4" />
+      <rect x="4" y="34" width="10" height="4" />
+      <rect x="4" y="40" width="10" height="4" />
+      <rect x="16" y="4" width="10" height="4" />
+      <rect x="16" y="10" width="14" height="4" />
+      <rect x="18" y="16" width="6" height="4" />
+      <rect x="18" y="22" width="6" height="4" />
+      <rect x="16" y="28" width="14" height="4" />
+      <rect x="16" y="34" width="10" height="4" />
+      <rect x="16" y="40" width="10" height="4" />
+      <rect x="34" y="4" width="10" height="4" />
+      <rect x="34" y="10" width="10" height="4" />
+      <rect x="34" y="16" width="10" height="4" />
+      <rect x="36" y="22" width="6" height="4" />
+      <rect x="34" y="28" width="10" height="4" />
+      <rect x="34" y="34" width="10" height="4" />
+      <rect x="34" y="40" width="10" height="4" />
+    </g>
+  </svg>
+);
+
+const CiscoIcon = () => (
+  <svg viewBox="0 0 48 48" width="28" height="28" fill="none">
+    <g stroke="#049FD9" strokeWidth="3.5" strokeLinecap="round">
+      <line x1="6" y1="18" x2="6" y2="30" />
+      <line x1="12" y1="14" x2="12" y2="34" />
+      <line x1="18" y1="10" x2="18" y2="38" />
+      <line x1="24" y1="14" x2="24" y2="34" />
+      <line x1="30" y1="10" x2="30" y2="38" />
+      <line x1="36" y1="14" x2="36" y2="34" />
+      <line x1="42" y1="18" x2="42" y2="30" />
+    </g>
+  </svg>
+);
+
+const MongoDBIcon = () => (
+  <svg viewBox="0 0 48 48" width="28" height="28" fill="none">
+    <path
+      d="M24 4C24 4 16 14 16 26c0 8 4 14 8 18 4-4 8-10 8-18C32 14 24 4 24 4z"
+      fill="#00ED64"
+    />
+    <path
+      d="M24 4C24 4 20 14 20 26c0 6 2 11 4 14 2-3 4-8 4-14C28 14 24 4 24 4z"
+      fill="#12924F"
+    />
+    <rect x="23" y="38" width="2" height="6" rx="1" fill="#B8C4C2" />
+  </svg>
+);
+
+const UdemyIcon = () => (
+  <svg viewBox="0 0 48 48" width="28" height="28" fill="none">
+    <path
+      d="M12 10v14c0 6.627 5.373 12 12 12s12-5.373 12-12V10"
+      stroke="#A435F0"
+      strokeWidth="5"
+      strokeLinecap="round"
+    />
+  </svg>
+);
+
+/* ── Data ─────────────────────────────────────────────────────────── */
 
 interface Certification {
   id: number;
@@ -9,7 +80,7 @@ interface Certification {
   issuer: string;
   date: string;
   credentialId?: string;
-  icon: string; // Emoji or text icon
+  icon: React.ReactNode;
   color: string; // Gradient accent
   skills: string[];
 }
@@ -20,7 +91,7 @@ const certifications: Certification[] = [
     title: "Applied Artificial Intelligence",
     issuer: "IBM SkillsBuild",
     date: "Dec 2024",
-    icon: "🤖",
+    icon: <IBMIcon />,
     color: "from-blue-500/20 via-indigo-500/10 to-transparent",
     skills: ["AI Ethics", "Machine Learning", "Neural Networks"],
   },
@@ -29,7 +100,7 @@ const certifications: Certification[] = [
     title: "Python Programming Essentials",
     issuer: "Cisco Networking Academy",
     date: "Aug 2024",
-    icon: "🐍",
+    icon: <CiscoIcon />,
     color: "from-amber-500/20 via-yellow-500/10 to-transparent",
     skills: ["Python", "Data Structures", "Algorithms"],
   },
@@ -38,7 +109,7 @@ const certifications: Certification[] = [
     title: "MongoDB with Python",
     issuer: "MongoDB University",
     date: "Feb 2024",
-    icon: "🍃",
+    icon: <MongoDBIcon />,
     color: "from-emerald-500/20 via-green-500/10 to-transparent",
     skills: ["NoSQL", "PyMongo", "Database Design"],
   },
@@ -47,7 +118,7 @@ const certifications: Certification[] = [
     title: "Complete Full-Stack Web Development Bootcamp",
     issuer: "Udemy",
     date: "Nov 2024",
-    icon: "💻",
+    icon: <UdemyIcon />,
     color: "from-violet-500/20 via-fuchsia-500/10 to-transparent",
     skills: ["React", "Node.js", "Express", "MERN Stack"],
   },
@@ -56,7 +127,7 @@ const certifications: Certification[] = [
     title: "Spring Boot & Hibernate for Beginners",
     issuer: "Udemy",
     date: "Mar 2025",
-    icon: "🌱",
+    icon: <UdemyIcon />,
     color: "from-sky-500/20 via-cyan-500/10 to-transparent",
     skills: ["Java", "Spring Boot", "JPA", "REST APIs"],
   },
@@ -127,7 +198,7 @@ export default function Certifications() {
   );
 }
 
-function CertificationCard({ cert }: { cert: Certification }) {
+const CertificationCard = memo(function CertificationCard({ cert }: { cert: Certification }) {
   const [mouseX, setMouseX] = useState(0);
   const [mouseY, setMouseY] = useState(0);
 
@@ -228,4 +299,4 @@ function CertificationCard({ cert }: { cert: Certification }) {
       </div>
     </motion.div>
   );
-}
+});

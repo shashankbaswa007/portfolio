@@ -1,14 +1,17 @@
+import dynamic from "next/dynamic";
 import Navbar from "@/components/Navbar";
 import ScrollyCanvas from "@/components/ScrollyCanvas";
 import Overlay from "@/components/Overlay";
 import StatsBar from "@/components/StatsBar";
 import About from "@/components/About";
-import Experience from "@/components/Experience";
-import Skills from "@/components/Skills";
-import Projects from "@/components/Projects";
-import Certifications from "@/components/Certifications";
-import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+
+// Below-fold: dynamically imported to reduce initial JS bundle
+const Experience = dynamic(() => import("@/components/Experience"));
+const Skills = dynamic(() => import("@/components/Skills"));
+const Projects = dynamic(() => import("@/components/Projects"));
+const Certifications = dynamic(() => import("@/components/Certifications"));
+const Contact = dynamic(() => import("@/components/Contact"));
 
 export default function Home() {
   return (

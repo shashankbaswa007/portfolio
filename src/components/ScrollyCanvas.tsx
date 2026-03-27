@@ -98,32 +98,64 @@ export default function ScrollyCanvas() {
     rafRef.current = requestAnimationFrame(render);
   }, [drawFrame]);
 
-  // Preload all images with progress tracking
+  // Preload images: frame 0 first (instant visual), then remaining in parallel batches
   useEffect(() => {
-    const images: HTMLImageElement[] = [];
+    const images: HTMLImageElement[] = new Array(TOTAL_FRAMES);
     let loadedCount = 0;
+    let cancelled = false;
 
-    for (let i = 0; i < TOTAL_FRAMES; i++) {
-      const img = new Image();
-      img.decoding = "async";
-      img.src = getFramePath(i);
-      img.onload = () => {
-        loadedCount++;
+    const markLoaded = () => {
+      loadedCount++;
+      if (!cancelled) {
         setLoadProgress(Math.round((loadedCount / TOTAL_FRAMES) * 100));
-        if (loadedCount === TOTAL_FRAMES) {
-          setIsLoaded(true);
-          drawFrame(0);
-          startRenderLoop();
-        }
-      };
-      images.push(img);
-    }
+      }
+      if (loadedCount === TOTAL_FRAMES && !cancelled) {
+        setIsLoaded(true);
+        drawFrame(0);
+        startRenderLoop();
+      }
+    };
 
-    imagesRef.current = images;
+    const loadImage = (index: number): Promise<void> => {
+      return new Promise((resolve) => {
+        const img = new Image();
+        img.decoding = "async";
+        img.onload = () => { markLoaded(); resolve(); };
+        img.onerror = () => { markLoaded(); resolve(); }; // Don't block on broken frames
+        img.src = getFramePath(index);
+        images[index] = img;
+      });
+    };
+
+    // Load in two phases: frame 0 first for instant display, then the rest in batches
+    const loadAll = async () => {
+      // Phase 1: Load first frame immediately
+      await loadImage(0);
+      if (!cancelled && images[0]?.complete && images[0]?.naturalWidth) {
+        imagesRef.current = images;
+        drawFrame(0); // Show first frame while rest loads
+      }
+
+      // Phase 2: Load remaining frames in concurrent batches of 10
+      const BATCH_SIZE = 10;
+      for (let batch = 1; batch < TOTAL_FRAMES; batch += BATCH_SIZE) {
+        if (cancelled) break;
+        const end = Math.min(batch + BATCH_SIZE, TOTAL_FRAMES);
+        const promises: Promise<void>[] = [];
+        for (let i = batch; i < end; i++) {
+          promises.push(loadImage(i));
+        }
+        await Promise.all(promises);
+        imagesRef.current = images;
+      }
+    };
+
+    loadAll();
 
     return () => {
+      cancelled = true;
       images.forEach((img) => {
-        img.onload = null;
+        if (img) { img.onload = null; img.onerror = null; }
       });
       if (rafRef.current) cancelAnimationFrame(rafRef.current);
     };

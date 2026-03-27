@@ -10,7 +10,7 @@ interface ExperienceItem {
   period: string;
   description: string;
   highlights: string[];
-  type: "full-time" | "contract" | "freelance";
+  type: "full-time" | "contract" | "freelance" | "part-time";
   image: string;
   imageAlt: string;
 }
@@ -28,7 +28,7 @@ const experiences: ExperienceItem[] = [
       "Handled class imbalance via sklearn class weights with augmentation and callbacks, improving model convergence by 12%",
       "Deployed clinical inference system on Hugging Face Spaces via Gradio with 4-tier risk scoring, processing 100+ daily images and reducing diagnostic turnaround by 25%",
     ],
-    type: "contract",
+    type: "part-time",
     image: "/experience/velocity-labs.png",
     imageAlt: "Advanced AI and Machine Learning workspace with data visualizations",
   },
@@ -51,10 +51,18 @@ const experiences: ExperienceItem[] = [
   },
 ];
 
+const typeLabels: Record<string, string> = {
+  "full-time": "Full-Time",
+  contract: "Contract",
+  freelance: "Freelance",
+  "part-time": "Part-Time Research",
+};
+
 const typeColors: Record<string, string> = {
   "full-time": "bg-emerald-500/15 text-emerald-400 border-emerald-500/20",
   contract: "bg-sky-500/15 text-sky-400 border-sky-500/20",
   freelance: "bg-violet-500/15 text-violet-400 border-violet-500/20",
+  "part-time": "bg-sky-500/15 text-sky-400 border-sky-500/20",
 };
 
 const containerVariants = {
@@ -171,7 +179,7 @@ export default function Experience() {
                         <span
                           className={`text-[10px] px-2.5 py-1 rounded-full border font-medium tracking-wider uppercase ${typeColors[exp.type]}`}
                         >
-                          {exp.type}
+                          {typeLabels[exp.type] ?? exp.type}
                         </span>
                       </div>
                       <p className="text-sm text-white/45 font-light">

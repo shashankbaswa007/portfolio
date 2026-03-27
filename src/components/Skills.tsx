@@ -25,7 +25,7 @@ const skillCategories = [
   },
   {
     category: "Developer Tools",
-    skills: ["Postman", "Jupyter Notebeook", "VS Code", "Hugging Face"],
+    skills: ["Postman", "Jupyter Notebook", "VS Code", "Hugging Face"],
   },
 ];
 
