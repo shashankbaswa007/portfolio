@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Sora, Inter, JetBrains_Mono } from "next/font/google";
 import CustomCursor from "@/components/CustomCursor";
 import { ThemeProvider } from "@/components/ThemeProvider";
+import SmoothScroll from "@/components/SmoothScroll";
 import "./globals.css";
 
 const sora = Sora({
@@ -45,8 +46,10 @@ export default function RootLayout({
     <html lang="en" className={`dark ${sora.variable} ${inter.variable} ${jetbrainsMono.variable}`} suppressHydrationWarning>
       <body className="font-sans antialiased bg-background text-foreground transition-colors duration-500 selection:bg-violet-500/30">
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
-          <CustomCursor />
-          {children}
+          <SmoothScroll>
+            <CustomCursor />
+            {children}
+          </SmoothScroll>
         </ThemeProvider>
       </body>
     </html>
