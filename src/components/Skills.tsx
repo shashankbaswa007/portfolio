@@ -66,7 +66,7 @@ export default function Skills() {
               Technical Stack
             </span>
           </div>
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight">
+          <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight">
             <span className="text-gradient">Skills</span>
           </h2>
           <p className="mt-4 text-lg text-white/40 font-light max-w-xl">

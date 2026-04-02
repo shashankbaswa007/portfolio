@@ -105,7 +105,7 @@ export default function Experience() {
             Career Journey
           </span>
         </div>
-        <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight">
+        <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight">
           <span className="text-gradient">Experience</span>
         </h2>
         <p className="mt-4 text-lg text-white/40 font-light max-w-xl">
@@ -173,7 +173,7 @@ export default function Experience() {
                     {/* Role and company */}
                     <div className="mb-4">
                       <div className="flex items-center gap-3 mb-2">
-                        <h3 className="text-xl md:text-2xl font-semibold text-white/90 group-hover:text-white transition-colors duration-300">
+                        <h3 className="font-display text-xl md:text-2xl font-semibold text-white/90 group-hover:text-white transition-colors duration-300">
                           {exp.role}
                         </h3>
                         <span

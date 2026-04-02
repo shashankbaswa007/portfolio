@@ -1,11 +1,20 @@
 import type { Metadata } from "next";
-import { Outfit, JetBrains_Mono } from "next/font/google";
+import { Sora, Inter, JetBrains_Mono } from "next/font/google";
+import CustomCursor from "@/components/CustomCursor";
+import { ThemeProvider } from "@/components/ThemeProvider";
 import "./globals.css";
 
-const outfit = Outfit({
+const sora = Sora({
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-outfit",
+  variable: "--font-sora",
+  weight: ["300", "400", "500", "600", "700", "800"],
+});
+
+const inter = Inter({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-inter",
 });
 
 const jetbrainsMono = JetBrains_Mono({
@@ -33,9 +42,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`dark ${outfit.variable} ${jetbrainsMono.variable}`}>
-      <body className="font-sans antialiased bg-[#121212] text-white selection:bg-violet-500/30">
-        {children}
+    <html lang="en" className={`dark ${sora.variable} ${inter.variable} ${jetbrainsMono.variable}`} suppressHydrationWarning>
+      <body className="font-sans antialiased bg-background text-foreground transition-colors duration-500 selection:bg-violet-500/30">
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
+          <CustomCursor />
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );

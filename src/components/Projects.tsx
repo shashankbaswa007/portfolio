@@ -59,7 +59,7 @@ const projects: Project[] = [
     description: "A real-time tournament management application built to simplify event coordination.\n\nI architected the platform via Next.js and Firebase to seamlessly sync live match data across dozens of concurrent games. By integrating Gemini to forecast match outcomes and creating a dedicated admin dashboard, the system dramatically reduced manual coordination work while maintaining high user engagement.",
     tags: ["Next.js", "Firebase", "Gemini AI", "Tailwind CSS"],
     categories: ["Full Stack"],
-    metric: "500+ users · 95% retention",
+    metric: "Real-time sync · Admin dashboard",
     color: "from-emerald-500/20 to-teal-500/20",
     year: "Oct 2024",
     href: "https://trysportshub.vercel.app",
@@ -104,7 +104,7 @@ export default function Projects() {
             Selected Work
           </span>
         </div>
-        <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight">
+        <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight">
           <span className="text-gradient">Projects</span>
         </h2>
         <p className="mt-4 text-lg text-white/40 font-light max-w-xl">
@@ -218,7 +218,7 @@ const ProjectCard = memo(function ProjectCard({ project }: { project: Project })
           </div>
 
           {/* Title and Category */}
-          <h3 className="text-2xl md:text-3xl font-bold text-white/90 group-hover:text-white transition-colors duration-300 mb-3 tracking-tight">
+          <h3 className="font-display text-2xl md:text-3xl font-bold text-white/90 group-hover:text-white transition-colors duration-300 mb-3 tracking-tight">
             {project.title}
           </h3>
           <div className="text-xs tracking-widest text-[#a78bfa] font-semibold mb-5 pb-5 border-b border-white/[0.05]">

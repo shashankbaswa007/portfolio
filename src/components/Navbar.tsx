@@ -2,6 +2,8 @@
 
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import { useTheme } from "next-themes";
+import MagneticElement from "./MagneticElement";
 
 const navLinks = [
   { name: "Home", href: "#hero-section" },
@@ -16,8 +18,11 @@ const navLinks = [
 export default function Navbar() {
   const [activeSection, setActiveSection] = useState("Home");
   const [isScrolled, setIsScrolled] = useState(false);
+  const { theme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
     const handleScroll = () => {
       // Check if scrolled down for styling
       setIsScrolled(window.scrollY > 50);
@@ -68,42 +73,60 @@ export default function Navbar() {
             : "bg-transparent border-transparent"
         }`}
       >
-        <span className="text-white/80 font-semibold tracking-wide pr-6 border-r border-white/10 hidden md:block">
-          Shashank.
-        </span>
+        <MagneticElement spread={0.2} className="hidden md:block pr-6 border-r border-white/10">
+          <span className="font-display text-white/80 font-semibold tracking-wide block">
+            Shashank.
+          </span>
+        </MagneticElement>
 
         {navLinks.map((link) => {
           const isActive = activeSection === link.name;
 
           return (
-            <a
-              key={link.name}
-              href={link.href}
-              onClick={(e) => handleNavClick(e, link.href)}
-              className="relative px-3 sm:px-4 py-1.5 sm:py-2 text-sm transition-colors duration-300 whitespace-nowrap"
-            >
-              <span
-                className={`relative z-10 ${
-                  isActive ? "text-white" : "text-white/40 hover:text-white/70"
-                }`}
+            <MagneticElement key={link.name} spread={0.15}>
+              <a
+                href={link.href}
+                onClick={(e) => handleNavClick(e, link.href)}
+                className="relative px-3 sm:px-4 py-1.5 sm:py-2 text-sm transition-colors duration-300 whitespace-nowrap block"
               >
-                {link.name}
-              </span>
+                <span
+                  className={`relative z-10 ${
+                    isActive ? "text-white" : "text-white/40 hover:text-white/70"
+                  }`}
+                >
+                  {link.name}
+                </span>
 
-              {isActive && (
-                <motion.div
-                  layoutId="activeNavBackground"
-                  className="absolute inset-0 rounded-full bg-white/10 border border-white/5"
-                  transition={{
-                    type: "spring",
-                    stiffness: 400,
-                    damping: 30,
-                  }}
-                />
-              )}
-            </a>
+                {isActive && (
+                  <motion.div
+                    layoutId="activeNavBackground"
+                    className="absolute inset-0 rounded-full bg-white/10 border border-white/5"
+                    transition={{
+                      type: "spring",
+                      stiffness: 400,
+                      damping: 30,
+                    }}
+                  />
+                )}
+              </a>
+            </MagneticElement>
           );
         })}
+
+        {mounted && (
+          <MagneticElement spread={0.2} className="pl-6 border-l border-white/10 hidden md:block">
+            <button
+              onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+              className="p-2 rounded-full hover:bg-white/10 transition-colors text-white/50 hover:text-white"
+            >
+              {theme === 'dark' ? (
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+              ) : (
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+              )}
+            </button>
+          </MagneticElement>
+        )}
       </nav>
     </motion.header>
   );

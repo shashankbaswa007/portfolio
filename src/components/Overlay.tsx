@@ -1,7 +1,9 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
+import MagneticElement from "./MagneticElement";
+import TerminalModal from "./TerminalModal";
 
 interface OverlaySectionProps {
   children: React.ReactNode;
@@ -58,6 +60,7 @@ function OverlaySection({
 
 export default function Overlay() {
   const containerRef = useRef<HTMLDivElement>(null);
+  const [isTerminalOpen, setIsTerminalOpen] = useState(false);
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -82,7 +85,7 @@ export default function Overlay() {
               B.E. AI & Data Science · CBIT Hyderabad · Open to internships
             </motion.span>
             
-            <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight text-center px-4 leading-[1.1]">
+            <h1 className="font-display text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight text-center px-4 leading-[1.1]">
               <span className="text-gradient">Shashank Sai Sri Baswa</span>
             </h1>
             
@@ -92,24 +95,28 @@ export default function Overlay() {
 
             {/* CTAs */}
             <div className="mt-8 md:mt-12 flex flex-col sm:flex-row items-center gap-4 justify-center w-full px-6 pointer-events-auto">
-              <a href="#projects-section" className="w-full sm:w-auto px-8 py-3.5 rounded-full bg-white text-black font-semibold tracking-wide hover:scale-105 active:scale-95 transition-all duration-300 text-sm text-center">
-                View My Work
-              </a>
-              <a href="#contact-section" className="w-full sm:w-auto px-8 py-3.5 rounded-full glass glass-hover border border-white/20 text-white font-medium tracking-wide hover:text-white hover:bg-white/10 transition-all duration-300 text-sm text-center">
-                Get In Touch
-              </a>
-              <a
-                href="/Shashank_Baswa_Resume%28portfolio_website%29.pdf"
-                download
-                className="w-full sm:w-auto px-8 py-3.5 rounded-full border border-white/15 text-white/70 font-medium tracking-wide hover:text-white hover:border-white/30 hover:bg-white/[0.04] transition-all duration-300 text-sm text-center inline-flex items-center justify-center gap-2"
-              >
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="opacity-70">
-                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-                  <polyline points="7 10 12 15 17 10" />
-                  <line x1="12" y1="15" x2="12" y2="3" />
-                </svg>
-                Download Resume
-              </a>
+              <MagneticElement spread={0.1}>
+                <a href="#projects-section" className="w-full sm:w-auto px-8 py-3.5 rounded-full bg-white text-black font-semibold tracking-wide hover:scale-105 active:scale-95 transition-all duration-300 text-sm text-center block">
+                  View My Work
+                </a>
+              </MagneticElement>
+              <MagneticElement spread={0.1}>
+                <a href="#contact-section" className="w-full sm:w-auto px-8 py-3.5 rounded-full glass glass-hover border border-white/20 text-white font-medium tracking-wide hover:text-white hover:bg-white/10 transition-all duration-300 text-sm text-center block">
+                  Get In Touch
+                </a>
+              </MagneticElement>
+              <MagneticElement spread={0.1}>
+                <button
+                  onClick={() => setIsTerminalOpen(true)}
+                  className="w-full sm:w-auto px-8 py-3.5 rounded-full border border-white/15 text-white/70 font-medium tracking-wide hover:text-white hover:border-white/30 hover:bg-white/[0.04] transition-all duration-300 text-sm text-center inline-flex items-center justify-center gap-2 cursor-pointer"
+                >
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="opacity-70">
+                    <polyline points="4 17 10 11 4 5" />
+                    <line x1="12" y1="19" x2="20" y2="19" />
+                  </svg>
+                  init_resume
+                </button>
+              </MagneticElement>
             </div>
 
             <div className="mt-12 md:mt-16 flex items-center justify-center text-white/30 hidden sm:flex">
@@ -141,6 +148,8 @@ export default function Overlay() {
           </motion.div>
         </OverlaySection>
       </div>
+      
+      <TerminalModal isOpen={isTerminalOpen} onClose={() => setIsTerminalOpen(false)} />
     </div>
   );
 }

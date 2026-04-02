@@ -25,7 +25,7 @@ export default function Contact() {
             </span>
           </div>
 
-          <h2 className="text-4xl sm:text-5xl lg:text-7xl font-bold tracking-tight mb-6">
+          <h2 className="font-display text-4xl sm:text-5xl lg:text-7xl font-bold tracking-tight mb-6">
             Let&apos;s build
             <br />
             <span className="text-gradient">something together.</span>
