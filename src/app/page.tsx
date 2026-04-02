@@ -11,6 +11,7 @@ const Experience = dynamic(() => import("@/components/Experience"));
 const Skills = dynamic(() => import("@/components/Skills"));
 const Projects = dynamic(() => import("@/components/Projects"));
 const Certifications = dynamic(() => import("@/components/Certifications"));
+const Store = dynamic(() => import("@/components/Store"));
 const Contact = dynamic(() => import("@/components/Contact"));
 
 export default function Home() {
@@ -67,6 +68,14 @@ export default function Home() {
 
       {/* Certifications section */}
       <Certifications />
+
+      {/* Section divider */}
+      <div className="relative h-px w-full max-w-[1400px] mx-auto">
+        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
+      </div>
+
+      {/* Store Section */}
+      <Store />
 
       {/* Section divider */}
       <div className="relative h-px w-full max-w-[1400px] mx-auto">
