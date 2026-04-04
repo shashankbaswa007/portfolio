@@ -79,25 +79,6 @@ export default function ScrollyCanvas() {
     ctx.drawImage(img, offsetX, offsetY, drawWidth, drawHeight);
   }, []);
 
-  // Smooth interpolation render loop
-  const startRenderLoop = useCallback(() => {
-    let lastDrawnFrame = -1;
-
-    const render = () => {
-      const target = targetFrameRef.current;
-
-      if (target !== lastDrawnFrame) {
-        lastDrawnFrame = target;
-        currentFrameRef.current = target;
-        drawFrame(target);
-      }
-
-      rafRef.current = requestAnimationFrame(render);
-    };
-
-    rafRef.current = requestAnimationFrame(render);
-  }, [drawFrame]);
-
   // Preload images: frame 0 first (instant visual), then remaining in parallel batches
   useEffect(() => {
     const images: HTMLImageElement[] = new Array(TOTAL_FRAMES);
@@ -112,7 +93,6 @@ export default function ScrollyCanvas() {
       if (loadedCount === TOTAL_FRAMES && !cancelled) {
         setIsLoaded(true);
         drawFrame(0);
-        startRenderLoop();
       }
     };
 
@@ -157,9 +137,8 @@ export default function ScrollyCanvas() {
       images.forEach((img) => {
         if (img) { img.onload = null; img.onerror = null; }
       });
-      if (rafRef.current) cancelAnimationFrame(rafRef.current);
     };
-  }, [drawFrame, startRenderLoop]);
+  }, [drawFrame]);
 
   // Handle resize — reset canvas and redraw
   useEffect(() => {
@@ -179,7 +158,10 @@ export default function ScrollyCanvas() {
   // Subscribe to scroll frame changes
   useMotionValueEvent(frameIndex, "change", (latest) => {
     const index = Math.max(0, Math.min(Math.round(latest), TOTAL_FRAMES - 1));
-    targetFrameRef.current = index;
+    if (targetFrameRef.current !== index) {
+      targetFrameRef.current = index;
+      drawFrame(index);
+    }
   });
 
   return (
