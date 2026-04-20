@@ -15,7 +15,7 @@ export default function ScrollyCanvas() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const imagesRef = useRef<HTMLImageElement[]>([]);
   const currentFrameRef = useRef<number>(0);
-  const rafRef = useRef<number | null>(null);
+
   const targetFrameRef = useRef<number>(0);
   const [isLoaded, setIsLoaded] = useState(false);
   const [loadProgress, setLoadProgress] = useState(0);

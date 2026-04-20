@@ -64,14 +64,6 @@ export default function CustomCursor() {
         damping: 28,
         mass: 0.5,
       }}
-    >
-      <motion.div 
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-1.5 h-1.5 bg-violet-400 rounded-full"
-        animate={{
-          opacity: isHovered ? 0 : 1,
-          scale: isHovered ? 0 : 1
-        }}
-      />
-    </motion.div>
+    />
   );
 }
