@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 
 const stats = [
-  { value: "9.06 / 10", label: "GPA — Dean's List" },
+  { value: "9.03 / 10", label: "GPA — Dean's List" },
   { value: "5", label: "Production Projects" },
   { value: "1st Place", label: "National Hackathon" },
 ];

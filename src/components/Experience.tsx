@@ -10,7 +10,7 @@ interface ExperienceItem {
   period: string;
   description: string;
   highlights: string[];
-  type: "full-time" | "contract" | "freelance" | "part-time";
+  type: "full-time" | "contract" | "freelance" | "part-time" | "internship";
   image: string;
   imageAlt: string;
 }
@@ -18,6 +18,22 @@ interface ExperienceItem {
 const experiences: ExperienceItem[] = [
   {
     id: 1,
+    role: "Web Developer Intern",
+    company: "InAmigos Foundation",
+    period: "May 2026 — June 2026",
+    description:
+      "Contributing to the development and enhancement of web applications for InAmigos Foundation, building responsive and accessible interfaces to support the organization's mission.",
+    highlights: [
+      "Developed and maintained responsive web interfaces using modern front-end technologies",
+      "Collaborated with cross-functional teams to deliver feature-rich web applications on tight deadlines",
+      "Implemented UI/UX improvements that enhanced user engagement and accessibility across the platform",
+    ],
+    type: "internship",
+    image: "/experience/nexus-studio.png",
+    imageAlt: "Modern web development workspace with collaborative tools",
+  },
+  {
+    id: 2,
     role: "Machine Learning Research Assistant",
     company: "AI and Data Science Department, CBIT",
     period: "March 2024 — Present",
@@ -33,7 +49,7 @@ const experiences: ExperienceItem[] = [
     imageAlt: "Advanced AI and Machine Learning workspace with data visualizations",
   },
   {
-    id: 2,
+    id: 3,
     role: "Placement Coordinator & Events Head",
     company: "AI and Data Science Department, CBIT",
     period: "August 2024 — Present",
@@ -56,6 +72,7 @@ const typeLabels: Record<string, string> = {
   contract: "Contract",
   freelance: "Freelance",
   "part-time": "Part-Time Research",
+  internship: "Internship",
 };
 
 const typeColors: Record<string, string> = {
@@ -63,6 +80,7 @@ const typeColors: Record<string, string> = {
   contract: "bg-sky-500/15 text-sky-400 border-sky-500/20",
   freelance: "bg-violet-500/15 text-violet-400 border-violet-500/20",
   "part-time": "bg-sky-500/15 text-sky-400 border-sky-500/20",
+  internship: "bg-amber-500/15 text-amber-400 border-amber-500/20",
 };
 
 const containerVariants = {

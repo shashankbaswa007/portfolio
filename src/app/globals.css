@@ -84,3 +84,35 @@ body {
     box-shadow: 0 0 40px rgba(167, 139, 250, 0.06), inset 0 0 40px rgba(167, 139, 250, 0.02);
   }
 }
+
+/* Hardware-accelerated scroll sections */
+section,
+[id$="-section"],
+#cinematic-hero-group,
+#overlay-container {
+  will-change: auto;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+}
+
+/* Smooth image rendering during scroll */
+img,
+canvas {
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+/* Reduced motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+

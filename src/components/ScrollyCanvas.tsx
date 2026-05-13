@@ -155,13 +155,43 @@ export default function ScrollyCanvas() {
     return () => window.removeEventListener("resize", handleResize);
   }, [drawFrame]);
 
+  // Smooth frame interpolation via requestAnimationFrame
+  useEffect(() => {
+    let rafId: number;
+    let running = true;
+
+    const tick = () => {
+      if (!running) return;
+      const target = targetFrameRef.current;
+      const current = currentFrameRef.current;
+
+      if (current !== target) {
+        // Interpolate toward target — move at least 1 frame per tick for responsiveness
+        const diff = target - current;
+        const step = Math.sign(diff) * Math.max(1, Math.abs(diff) * 0.3);
+        const next = Math.abs(diff) < 1.5
+          ? target
+          : Math.round(current + step);
+
+        const clamped = Math.max(0, Math.min(next, TOTAL_FRAMES - 1));
+        if (clamped !== current) {
+          currentFrameRef.current = clamped;
+          drawFrame(clamped);
+        }
+      }
+      rafId = requestAnimationFrame(tick);
+    };
+
+    rafId = requestAnimationFrame(tick);
+    return () => {
+      running = false;
+      cancelAnimationFrame(rafId);
+    };
+  }, [drawFrame]);
+
   // Subscribe to scroll frame changes
   useMotionValueEvent(frameIndex, "change", (latest) => {
-    const index = Math.max(0, Math.min(Math.round(latest), TOTAL_FRAMES - 1));
-    if (targetFrameRef.current !== index) {
-      targetFrameRef.current = index;
-      drawFrame(index);
-    }
+    targetFrameRef.current = Math.max(0, Math.min(Math.round(latest), TOTAL_FRAMES - 1));
   });
 
   return (
