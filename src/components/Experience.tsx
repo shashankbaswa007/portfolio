@@ -13,6 +13,8 @@ interface ExperienceItem {
   type: "full-time" | "contract" | "freelance" | "part-time" | "internship";
   image: string;
   imageAlt: string;
+  imageFit?: "cover" | "contain";
+  imageBg?: string;
 }
 
 const experiences: ExperienceItem[] = [
@@ -31,6 +33,8 @@ const experiences: ExperienceItem[] = [
     type: "internship",
     image: "/experience/upscalemedia-transformed (2).png",
     imageAlt: "Modern web development workspace with collaborative tools",
+    imageFit: "contain",
+    imageBg: "bg-white/[0.02]",
   },
   {
     id: 2,
@@ -156,13 +160,21 @@ export default function Experience() {
                   }`}
                 >
                   {/* Image side */}
-                  <div className="relative lg:w-[42%] h-56 sm:h-64 lg:h-auto lg:min-h-[340px] overflow-hidden">
+                  <div
+                    className={`relative lg:w-[42%] h-56 sm:h-64 lg:h-auto lg:min-h-[340px] overflow-hidden ${
+                      exp.imageBg || ""
+                    }`}
+                  >
                     <Image
                       src={exp.image}
                       alt={exp.imageAlt}
                       fill
+                      quality={100}
+                      priority={index === 0}
                       sizes="(max-width: 1024px) 100vw, 42vw"
-                      className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                      className={`${
+                        exp.imageFit === "contain" ? "object-contain p-8" : "object-cover"
+                      } transition-transform duration-700 ease-out group-hover:scale-105 will-change-transform [image-rendering:-webkit-optimize-contrast]`}
                     />
                     {/* Image overlay gradient — blends into the card */}
                     <div
