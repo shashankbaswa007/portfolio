@@ -29,7 +29,7 @@ const experiences: ExperienceItem[] = [
       "Implemented UI/UX improvements that enhanced user engagement and accessibility across the platform",
     ],
     type: "internship",
-    image: "/experience/inamigos_logo_cropped.png",
+    image: "/experience/upscalemedia-transformed (2).png",
     imageAlt: "Modern web development workspace with collaborative tools",
   },
   {
