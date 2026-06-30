@@ -73,18 +73,38 @@ const UdemyIcon = () => (
 );
 
 const BCGIcon = () => (
-  <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="#047857" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+  <svg viewBox="0 0 48 48" width="28" height="28" fill="none">
+    {/* Rising bar chart — data science */}
+    <rect x="6"  y="30" width="7" height="12" rx="1.5" fill="#059669" />
+    <rect x="16" y="22" width="7" height="20" rx="1.5" fill="#10B981" />
+    <rect x="26" y="14" width="7" height="28" rx="1.5" fill="#34D399" />
+    <rect x="36" y="6"  width="7" height="36" rx="1.5" fill="#6EE7B7" />
+    {/* Trend line */}
+    <path d="M9.5 30 L19.5 22 L29.5 14 L39.5 6" stroke="#047857" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
   </svg>
 );
 
 const ServiceNowIcon = () => (
-  <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="#84CC16" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-    <polyline points="14 2 14 8 20 8"></polyline>
-    <line x1="16" y1="13" x2="8" y2="13"></line>
-    <line x1="16" y1="17" x2="8" y2="17"></line>
-    <polyline points="10 9 9 9 8 9"></polyline>
+  <svg viewBox="0 0 48 48" width="28" height="28" fill="none">
+    {/* Outer gear teeth */}
+    <path
+      d="M24 4 L27.5 8 L33 6.5 L33.5 12.5 L39.5 14 L37.5 19.5 L42 24 L37.5 28.5 L39.5 34 L33.5 35.5 L33 41.5 L27.5 40 L24 44 L20.5 40 L15 41.5 L14.5 35.5 L8.5 34 L10.5 28.5 L6 24 L10.5 19.5 L8.5 14 L14.5 12.5 L15 6.5 L20.5 8Z"
+      fill="#81C506"
+      opacity="0.15"
+      stroke="#81C506"
+      strokeWidth="1.5"
+      strokeLinejoin="round"
+    />
+    {/* Inner circle */}
+    <circle cx="24" cy="24" r="10" stroke="#81C506" strokeWidth="2.5" />
+    {/* Workflow nodes inside */}
+    <circle cx="20" cy="21" r="2.5" fill="#81C506" />
+    <circle cx="28" cy="21" r="2.5" fill="#81C506" />
+    <circle cx="24" cy="28" r="2.5" fill="#81C506" />
+    {/* Connecting lines */}
+    <line x1="22" y1="22" x2="26" y2="22" stroke="#81C506" strokeWidth="1.5" strokeLinecap="round" />
+    <line x1="21" y1="23" x2="23" y2="27" stroke="#81C506" strokeWidth="1.5" strokeLinecap="round" />
+    <line x1="27" y1="23" x2="25" y2="27" stroke="#81C506" strokeWidth="1.5" strokeLinecap="round" />
   </svg>
 );
 
