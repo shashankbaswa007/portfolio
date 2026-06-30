@@ -38,7 +38,7 @@ const projects: Project[] = [
     metric: "1st Place — National Hackathon",
     color: "from-sky-500/20 to-cyan-500/20",
     year: "Feb 2024",
-    href: "https://github.com/shashankbaswa007/HireLog",
+    href: "https://hirelogapp.vercel.app/",
     github: "https://github.com/shashankbaswa007/HireLog",
   },
   {
