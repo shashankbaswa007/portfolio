@@ -72,6 +72,22 @@ const UdemyIcon = () => (
   </svg>
 );
 
+const BCGIcon = () => (
+  <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="#047857" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+  </svg>
+);
+
+const ServiceNowIcon = () => (
+  <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="#84CC16" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+    <polyline points="14 2 14 8 20 8"></polyline>
+    <line x1="16" y1="13" x2="8" y2="13"></line>
+    <line x1="16" y1="17" x2="8" y2="17"></line>
+    <polyline points="10 9 9 9 8 9"></polyline>
+  </svg>
+);
+
 /* ── Data ─────────────────────────────────────────────────────────── */
 
 interface Certification {
@@ -130,6 +146,42 @@ const certifications: Certification[] = [
     icon: <UdemyIcon />,
     color: "from-sky-500/20 via-cyan-500/10 to-transparent",
     skills: ["Java", "Spring Boot", "JPA", "REST APIs"],
+  },
+  {
+    id: 6,
+    title: "Data Science Job Simulation",
+    issuer: "BCGX (Issued by Forage)",
+    date: "June 2, 2026",
+    icon: <BCGIcon />,
+    color: "from-emerald-500/20 via-teal-500/10 to-transparent",
+    skills: ["Understanding business context & problem framing", "Exploratory Data Analysis (EDA)", "Data Cleaning", "Feature Engineering", "Modeling and Evaluation", "Delivering Insights & Recommendations"],
+  },
+  {
+    id: 7,
+    title: "Welcome to ServiceNow",
+    issuer: "ServiceNow",
+    date: "June 11, 2026",
+    icon: <ServiceNowIcon />,
+    color: "from-lime-500/20 via-green-500/10 to-transparent",
+    skills: ["Platform Analytics", "Service Catalog", "Visual Task Boards", "ServiceNow AI Platform", "Knowledge Management"],
+  },
+  {
+    id: 8,
+    title: "Micro-Certification - Welcome to ServiceNow (Zurich)",
+    issuer: "ServiceNow",
+    date: "June 14, 2026",
+    icon: <ServiceNowIcon />,
+    color: "from-lime-500/20 via-green-500/10 to-transparent",
+    skills: ["ServiceNow AI Platform", "Platform Analytics", "Service Catalog", "Visual Task Boards", "Knowledge Management"],
+  },
+  {
+    id: 9,
+    title: "ServiceNow Administration Fundamentals - On Demand",
+    issuer: "ServiceNow",
+    date: "June 14, 2026",
+    icon: <ServiceNowIcon />,
+    color: "from-lime-500/20 via-green-500/10 to-transparent",
+    skills: ["Service Catalog", "Platform Analytics Experience", "Workflow Studio", "ServiceNow AI Platform", "Incident Management"],
   },
 ];
 
