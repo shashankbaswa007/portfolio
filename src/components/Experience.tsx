@@ -1,6 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 
 interface ExperienceItem {
@@ -87,13 +88,6 @@ const typeColors: Record<string, string> = {
   internship: "bg-amber-500/15 text-amber-400 border-amber-500/20",
 };
 
-const containerVariants = {
-  hidden: {},
-  visible: {
-    transition: { staggerChildren: 0.18 },
-  },
-};
-
 const itemVariants = {
   hidden: { opacity: 0, y: 50 },
   visible: {
@@ -104,8 +98,17 @@ const itemVariants = {
 };
 
 export default function Experience() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start 80%", "end 20%"],
+  });
+
+  const timelineHeight = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
+
   return (
     <section
+      ref={sectionRef}
       className="relative py-24 md:py-32 px-6 md:px-12 lg:px-24"
       id="experience-section"
     >
@@ -136,110 +139,134 @@ export default function Experience() {
         </p>
       </motion.div>
 
-      {/* Experience entries */}
-      <motion.div
-        className="max-w-7xl mx-auto space-y-8 lg:space-y-12"
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-50px" }}
-      >
-        {experiences.map((exp, index) => {
-          const isEven = index % 2 === 0;
+      {/* Experience entries with timeline */}
+      <div className="max-w-7xl mx-auto relative">
+        {/* Vertical Timeline Bar — hidden on mobile */}
+        <div className="hidden lg:block absolute left-8 top-0 bottom-0 w-[2px]">
+          {/* Track (static background) */}
+          <div className="absolute inset-0 bg-white/[0.04] rounded-full" />
+          {/* Fill (scroll-driven) */}
+          <motion.div
+            className="absolute top-0 left-0 w-full rounded-full bg-gradient-to-b from-violet-500 via-fuchsia-500 to-sky-500"
+            style={{ height: timelineHeight }}
+          />
+        </div>
 
-          return (
-            <motion.div
-              key={exp.id}
-              variants={itemVariants}
-              className="group"
-            >
-              <div className="glass glass-hover rounded-2xl overflow-hidden transition-all duration-500">
-                <div
-                  className={`flex flex-col ${
-                    isEven ? "lg:flex-row" : "lg:flex-row-reverse"
-                  }`}
-                >
-                  {/* Image side */}
-                  <div
-                    className={`relative lg:w-[42%] h-56 sm:h-64 lg:h-auto lg:min-h-[340px] overflow-hidden ${
-                      exp.imageBg || ""
-                    }`}
-                  >
-                    <Image
-                      src={exp.image}
-                      alt={exp.imageAlt}
-                      fill
-                      quality={100}
-                      priority={index === 0}
-                      sizes="(max-width: 1024px) 100vw, 42vw"
-                      className={`${
-                        exp.imageFit === "contain" ? "object-contain p-8" : "object-cover"
-                      } transition-transform duration-700 ease-out group-hover:scale-105 will-change-transform [image-rendering:-webkit-optimize-contrast]`}
-                    />
-                    {/* Image overlay gradient — blends into the card */}
-                    <div
-                      className={`absolute inset-0 bg-gradient-to-${
-                        isEven ? "r" : "l"
-                      } from-transparent via-transparent to-[rgba(18,18,18,0.4)] hidden lg:block`}
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[rgba(18,18,18,0.6)] via-transparent to-transparent lg:hidden" />
-                    {/* Subtle color overlay on hover */}
-                    <div className="absolute inset-0 bg-violet-600/0 group-hover:bg-violet-600/[0.08] transition-colors duration-700" />
+        <div className="space-y-8 lg:space-y-12">
+          {experiences.map((exp, index) => {
+            const isEven = index % 2 === 0;
 
-                    {/* Period badge overlaid on image */}
+            return (
+              <motion.div
+                key={exp.id}
+                variants={itemVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-50px" }}
+                className="group relative"
+              >
+                {/* Timeline Dot — hidden on mobile */}
+                <div className="hidden lg:flex absolute left-8 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20">
+                  <motion.div
+                    className="w-4 h-4 rounded-full bg-[#121212] border-2 border-violet-400/60 shadow-[0_0_12px_rgba(139,92,246,0.4)]"
+                    initial={{ scale: 0 }}
+                    whileInView={{ scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.2, type: "spring", stiffness: 300, damping: 20 }}
+                  />
+                </div>
+
+                {/* Card — offset on desktop to make room for timeline */}
+                <div className="lg:ml-20">
+                  <div className="glass glass-hover rounded-2xl overflow-hidden transition-all duration-500">
                     <div
-                      className={`absolute top-4 ${
-                        isEven ? "left-4" : "right-4 lg:left-4 lg:right-auto"
+                      className={`flex flex-col ${
+                        isEven ? "lg:flex-row" : "lg:flex-row-reverse"
                       }`}
                     >
-                      <span className="text-[10px] px-3 py-1.5 rounded-full bg-black/40 backdrop-blur-md border border-white/10 text-white/70 font-mono tabular-nums tracking-wider">
-                        {exp.period}
-                      </span>
-                    </div>
-                  </div>
+                      {/* Image side */}
+                      <div
+                        className={`relative lg:w-[42%] h-56 sm:h-64 lg:h-auto lg:min-h-[340px] overflow-hidden ${
+                          exp.imageBg || ""
+                        }`}
+                      >
+                        <Image
+                          src={exp.image}
+                          alt={exp.imageAlt}
+                          fill
+                          quality={100}
+                          priority={index === 0}
+                          sizes="(max-width: 1024px) 100vw, 42vw"
+                          className={`${
+                            exp.imageFit === "contain" ? "object-contain p-8" : "object-cover"
+                          } transition-transform duration-700 ease-out group-hover:scale-105 will-change-transform [image-rendering:-webkit-optimize-contrast]`}
+                        />
+                        {/* Image overlay gradient — blends into the card */}
+                        <div
+                          className={`absolute inset-0 bg-gradient-to-${
+                            isEven ? "r" : "l"
+                          } from-transparent via-transparent to-[rgba(18,18,18,0.4)] hidden lg:block`}
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-[rgba(18,18,18,0.6)] via-transparent to-transparent lg:hidden" />
+                        {/* Subtle color overlay on hover */}
+                        <div className="absolute inset-0 bg-violet-600/0 group-hover:bg-violet-600/[0.08] transition-colors duration-700" />
 
-                  {/* Content side */}
-                  <div className="flex-1 p-6 md:p-8 lg:p-10 flex flex-col justify-center">
-                    {/* Role and company */}
-                    <div className="mb-4">
-                      <div className="flex items-center gap-3 mb-2">
-                        <h3 className="font-display text-xl md:text-2xl font-semibold text-white/90 group-hover:text-white transition-colors duration-300">
-                          {exp.role}
-                        </h3>
-                        <span
-                          className={`text-[10px] px-2.5 py-1 rounded-full border font-medium tracking-wider uppercase ${typeColors[exp.type]}`}
+                        {/* Period badge overlaid on image */}
+                        <div
+                          className={`absolute top-4 ${
+                            isEven ? "left-4" : "right-4 lg:left-4 lg:right-auto"
+                          }`}
                         >
-                          {typeLabels[exp.type] ?? exp.type}
-                        </span>
-                      </div>
-                      <p className="text-sm text-white/45 font-light">
-                        {exp.company}
-                      </p>
-                    </div>
-
-                    {/* Description */}
-                    <p className="text-sm md:text-base text-white/40 font-light leading-relaxed mb-5">
-                      {exp.description}
-                    </p>
-
-                    {/* Highlights */}
-                    <ul className="space-y-2.5">
-                      {exp.highlights.map((highlight, i) => (
-                        <li key={i} className="flex items-start gap-3 text-sm">
-                          <span className="mt-1.5 w-1 h-1 rounded-full bg-violet-400/60 flex-shrink-0" />
-                          <span className="text-white/50 font-light leading-relaxed group-hover:text-white/60 transition-colors duration-300">
-                            {highlight}
+                          <span className="text-[10px] px-3 py-1.5 rounded-full bg-black/40 backdrop-blur-md border border-white/10 text-white/70 font-mono tabular-nums tracking-wider">
+                            {exp.period}
                           </span>
-                        </li>
-                      ))}
-                    </ul>
+                        </div>
+                      </div>
+
+                      {/* Content side */}
+                      <div className="flex-1 p-6 md:p-8 lg:p-10 flex flex-col justify-center">
+                        {/* Role and company */}
+                        <div className="mb-4">
+                          <div className="flex items-center gap-3 mb-2 flex-wrap">
+                            <h3 className="font-display text-xl md:text-2xl font-semibold text-white/90 group-hover:text-white transition-colors duration-300">
+                              {exp.role}
+                            </h3>
+                            <span
+                              className={`text-[10px] px-2.5 py-1 rounded-full border font-medium tracking-wider uppercase ${typeColors[exp.type]}`}
+                            >
+                              {typeLabels[exp.type] ?? exp.type}
+                            </span>
+                          </div>
+                          <p className="text-sm text-white/45 font-light">
+                            {exp.company}
+                          </p>
+                        </div>
+
+                        {/* Description */}
+                        <p className="text-sm md:text-base text-white/40 font-light leading-relaxed mb-5">
+                          {exp.description}
+                        </p>
+
+                        {/* Highlights */}
+                        <ul className="space-y-2.5">
+                          {exp.highlights.map((highlight, i) => (
+                            <li key={i} className="flex items-start gap-3 text-sm">
+                              <span className="mt-1.5 w-1 h-1 rounded-full bg-violet-400/60 flex-shrink-0" />
+                              <span className="text-white/50 font-light leading-relaxed group-hover:text-white/60 transition-colors duration-300">
+                                {highlight}
+                              </span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </motion.div>
-          );
-        })}
-      </motion.div>
+              </motion.div>
+            );
+          })}
+        </div>
+      </div>
     </section>
   );
 }

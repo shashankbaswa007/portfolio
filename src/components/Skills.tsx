@@ -2,30 +2,49 @@
 
 import { motion } from "framer-motion";
 
-const skillCategories = [
+interface SkillCategory {
+  category: string;
+  skills: string[];
+  accent: string; // border/glow color on hover
+  dotColor: string; // category dot color
+}
+
+const skillCategories: SkillCategory[] = [
   {
     category: "Languages",
     skills: ["Java", "Python", "JavaScript", "TypeScript", "C++", "SQL"],
+    accent: "hover:border-violet-400/40 hover:shadow-[0_0_15px_rgba(139,92,246,0.15)]",
+    dotColor: "bg-violet-500 shadow-[0_0_10px_rgba(139,92,246,0.8)]",
   },
   {
     category: "Frameworks & Libraries",
     skills: ["Spring Boot", "React", "Next.js", "Node.js", "TensorFlow", "PyTorch"],
+    accent: "hover:border-sky-400/40 hover:shadow-[0_0_15px_rgba(56,189,248,0.15)]",
+    dotColor: "bg-sky-500 shadow-[0_0_10px_rgba(56,189,248,0.8)]",
   },
   {
     category: "Databases",
     skills: ["MySQL", "PostgreSQL", "MongoDB", "Firebase"],
+    accent: "hover:border-amber-400/40 hover:shadow-[0_0_15px_rgba(251,191,36,0.15)]",
+    dotColor: "bg-amber-500 shadow-[0_0_10px_rgba(251,191,36,0.8)]",
   },
   {
     category: "AI/ML",
     skills: ["NLP", "FAISS", "Computer Vision", "Transfer Learning", "LLM Integration", "Scikit-learn", "XGBoost", "Gradio"],
+    accent: "hover:border-emerald-400/40 hover:shadow-[0_0_15px_rgba(52,211,153,0.15)]",
+    dotColor: "bg-emerald-500 shadow-[0_0_10px_rgba(52,211,153,0.8)]",
   },
   {
     category: "DevOps & Cloud",
     skills: ["Git", "Docker", "CI/CD", "REST APIs", "JWT", "Linux", "Maven"],
+    accent: "hover:border-fuchsia-400/40 hover:shadow-[0_0_15px_rgba(232,121,249,0.15)]",
+    dotColor: "bg-fuchsia-500 shadow-[0_0_10px_rgba(232,121,249,0.8)]",
   },
   {
     category: "Developer Tools",
     skills: ["Postman", "Jupyter Notebook", "VS Code", "Hugging Face"],
+    accent: "hover:border-rose-400/40 hover:shadow-[0_0_15px_rgba(251,113,133,0.15)]",
+    dotColor: "bg-rose-500 shadow-[0_0_10px_rgba(251,113,133,0.8)]",
   },
 ];
 
@@ -33,18 +52,32 @@ const containerVariants = {
   hidden: {},
   visible: {
     transition: {
-      staggerChildren: 0.1,
+      staggerChildren: 0.08,
     },
   },
 };
 
-const itemVariants = {
+const groupVariants = {
   hidden: { opacity: 0, y: 20 },
   visible: {
     opacity: 1,
     y: 0,
     transition: {
       duration: 0.5,
+      ease: [0.16, 1, 0.3, 1] as const,
+      staggerChildren: 0.03,
+    },
+  },
+};
+
+const pillVariants = {
+  hidden: { opacity: 0, scale: 0.8, y: 10 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    y: 0,
+    transition: {
+      duration: 0.4,
       ease: [0.16, 1, 0.3, 1] as const,
     },
   },
@@ -83,21 +116,23 @@ export default function Skills() {
         viewport={{ once: true, margin: "-50px" }}
       >
         {skillCategories.map((group) => (
-          <motion.div key={group.category} variants={itemVariants} className="flex flex-col">
+          <motion.div key={group.category} variants={groupVariants} className="flex flex-col">
             <h3 className="text-lg md:text-xl font-semibold text-white/80 mb-6 flex items-center gap-3">
-              <span className="w-1.5 h-1.5 rounded-full bg-violet-500 shadow-[0_0_10px_rgba(139,92,246,0.8)]" />
+              <span className={`w-2 h-2 rounded-full ${group.dotColor}`} />
               {group.category}
             </h3>
-            <div className="flex flex-wrap gap-3">
+            <motion.div className="flex flex-wrap gap-3" variants={groupVariants}>
               {group.skills.map((skill) => (
-                <div
+                <motion.div
                   key={skill}
-                  className="px-4 py-2 rounded-full glass border border-white/10 text-sm md:text-base text-white/70 tracking-wide hover:bg-white/10 hover:text-white hover:border-white/20 transition-all duration-300 cursor-default"
+                  variants={pillVariants}
+                  whileHover={{ scale: 1.05, y: -2 }}
+                  className={`px-4 py-2 rounded-full glass border border-white/10 text-sm md:text-base text-white/70 tracking-wide hover:bg-white/10 hover:text-white transition-all duration-300 cursor-default ${group.accent}`}
                 >
                   {skill}
-                </div>
+                </motion.div>
               ))}
-            </div>
+            </motion.div>
           </motion.div>
         ))}
       </motion.div>

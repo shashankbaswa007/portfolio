@@ -1,12 +1,47 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useRef, useEffect, useState } from "react";
+import { motion, useInView, useSpring, useMotionValue } from "framer-motion";
+
+/* ── Animated Number Component ────────────────────────────────────── */
+
+function AnimatedNumber({ value, suffix = "", duration = 1.2 }: { value: number; suffix?: string; duration?: number }) {
+  const ref = useRef<HTMLSpanElement>(null);
+  const motionValue = useMotionValue(0);
+  const springValue = useSpring(motionValue, { duration: duration * 1000, bounce: 0 });
+  const isInView = useInView(ref, { once: true, margin: "-50px" });
+  const [displayValue, setDisplayValue] = useState("0");
+
+  useEffect(() => {
+    if (isInView) {
+      motionValue.set(value);
+    }
+  }, [isInView, motionValue, value]);
+
+  useEffect(() => {
+    const unsubscribe = springValue.on("change", (latest) => {
+      // Handle decimal values (e.g., 9.03)
+      if (value % 1 !== 0) {
+        setDisplayValue(latest.toFixed(2));
+      } else {
+        setDisplayValue(Math.round(latest).toString());
+      }
+    });
+    return unsubscribe;
+  }, [springValue, value]);
+
+  return <span ref={ref}>{displayValue}{suffix}</span>;
+}
+
+/* ── Data ─────────────────────────────────────────────────────────── */
 
 const stats = [
-  { value: "9.03 / 10", label: "GPA — Dean's List" },
-  { value: "5", label: "Production Projects" },
-  { value: "1st Place", label: "National Hackathon" },
+  { value: 9.03, suffix: " / 10", label: "GPA — Dean's List", accent: "from-violet-500 to-fuchsia-500" },
+  { value: 5, suffix: "", label: "Production Projects", accent: "from-sky-500 to-cyan-500" },
+  { value: 1, suffix: "st Place", label: "National Hackathon", accent: "from-emerald-500 to-teal-500" },
 ];
+
+/* ── Component ────────────────────────────────────────────────────── */
 
 export default function StatsBar() {
   return (
@@ -16,18 +51,28 @@ export default function StatsBar() {
           {stats.map((stat, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
+              initial={{ opacity: 0, scale: 0.9, y: 20 }}
+              whileInView={{ opacity: 1, scale: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
-              transition={{ delay: index * 0.1, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ delay: index * 0.15, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
               className="flex flex-col items-center justify-center text-center px-4"
             >
-              <div className="font-display text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-white mb-2">
-                {stat.value}
+              <div className="font-display text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-white mb-3">
+                <AnimatedNumber value={stat.value} suffix={stat.suffix} />
               </div>
-              <div className="text-xs md:text-sm font-mono text-sky-400/80 uppercase tracking-widest">
+              <div className="text-xs md:text-sm font-mono text-sky-400/80 uppercase tracking-widest mb-4">
                 {stat.label}
               </div>
+              {/* Animated accent bar */}
+              <motion.div
+                className="h-[2px] rounded-full"
+                initial={{ width: 0 }}
+                whileInView={{ width: 48 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ delay: index * 0.15 + 0.4, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+              >
+                <div className={`w-full h-full bg-gradient-to-r ${stat.accent} rounded-full`} />
+              </motion.div>
             </motion.div>
           ))}
         </div>
