@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useEffect, useState } from "react";
+import { useRef, useEffect } from "react";
 import { motion, useInView, useSpring, useMotionValue, useTransform } from "framer-motion";
 
 /* ── Animated Number Component ────────────────────────────────────── */
@@ -26,7 +26,7 @@ function AnimatedNumber({ value, suffix = "", duration = 1.2 }: { value: number;
 
   return (
     <span ref={ref}>
-      <motion.span>{displayValue}</motion.span>
+      <motion.span>{displayValue as any}</motion.span>
       {suffix}
     </span>
   );
