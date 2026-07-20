@@ -113,8 +113,8 @@ export default function Experience() {
       id="experience-section"
     >
       {/* Background accents */}
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-violet-600/[0.03] rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-1/4 left-0 w-[400px] h-[400px] bg-sky-600/[0.02] rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-violet-600/[0.03] rounded-full blur-[120px] pointer-events-none will-change-transform" />
+      <div className="absolute bottom-1/4 left-0 w-[400px] h-[400px] bg-sky-600/[0.02] rounded-full blur-[100px] pointer-events-none will-change-transform" />
 
       {/* Section header */}
       <motion.div

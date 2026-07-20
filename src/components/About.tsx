@@ -31,7 +31,7 @@ export default function About() {
   return (
     <section className="relative py-24 md:py-32 px-6 md:px-12 lg:px-24 overflow-hidden" id="about-section">
       {/* Background glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-fuchsia-600/[0.03] rounded-full blur-[150px] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-fuchsia-600/[0.03] rounded-full blur-[150px] pointer-events-none will-change-transform" />
 
       <div className="max-w-4xl mx-auto flex flex-col items-center text-center">
         <motion.div

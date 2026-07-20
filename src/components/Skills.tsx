@@ -127,7 +127,7 @@ export default function Skills() {
                   key={skill}
                   variants={pillVariants}
                   whileHover={{ scale: 1.05, y: -2 }}
-                  className={`px-4 py-2 rounded-full glass border border-white/10 text-sm md:text-base text-white/70 tracking-wide hover:bg-white/10 hover:text-white transition-all duration-300 cursor-default ${group.accent}`}
+                  className={`px-4 py-2 rounded-full glass border border-white/10 text-sm md:text-base text-white/70 tracking-wide hover:bg-white/10 hover:text-white transition-all duration-300 cursor-default will-change-transform ${group.accent}`}
                 >
                   {skill}
                 </motion.div>

@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef, useEffect, useState } from "react";
-import { motion, useInView, useSpring, useMotionValue } from "framer-motion";
+import { motion, useInView, useSpring, useMotionValue, useTransform } from "framer-motion";
 
 /* ── Animated Number Component ────────────────────────────────────── */
 
@@ -10,7 +10,13 @@ function AnimatedNumber({ value, suffix = "", duration = 1.2 }: { value: number;
   const motionValue = useMotionValue(0);
   const springValue = useSpring(motionValue, { duration: duration * 1000, bounce: 0 });
   const isInView = useInView(ref, { once: true, margin: "-50px" });
-  const [displayValue, setDisplayValue] = useState("0");
+  
+  const displayValue = useTransform(springValue, (latest) => {
+    if (value % 1 !== 0) {
+      return latest.toFixed(2);
+    }
+    return Math.round(latest).toString();
+  });
 
   useEffect(() => {
     if (isInView) {
@@ -18,19 +24,12 @@ function AnimatedNumber({ value, suffix = "", duration = 1.2 }: { value: number;
     }
   }, [isInView, motionValue, value]);
 
-  useEffect(() => {
-    const unsubscribe = springValue.on("change", (latest) => {
-      // Handle decimal values (e.g., 9.03)
-      if (value % 1 !== 0) {
-        setDisplayValue(latest.toFixed(2));
-      } else {
-        setDisplayValue(Math.round(latest).toString());
-      }
-    });
-    return unsubscribe;
-  }, [springValue, value]);
-
-  return <span ref={ref}>{displayValue}{suffix}</span>;
+  return (
+    <span ref={ref}>
+      <motion.span>{displayValue}</motion.span>
+      {suffix}
+    </span>
+  );
 }
 
 /* ── Data ─────────────────────────────────────────────────────────── */
