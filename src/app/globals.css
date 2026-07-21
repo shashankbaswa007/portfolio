@@ -70,8 +70,9 @@ body {
   .glass {
     background: var(--glass-bg);
     border: 1px solid var(--glass-border);
-    backdrop-filter: blur(24px);
-    -webkit-backdrop-filter: blur(24px);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    will-change: transform, backdrop-filter;
   }
 
   .glass-hover {

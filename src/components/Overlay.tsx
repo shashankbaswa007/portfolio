@@ -51,7 +51,7 @@ function OverlaySection({
   return (
     <motion.div
       className={`absolute inset-0 flex flex-col ${alignmentClasses[alignment]} pointer-events-none px-6`}
-      style={{ opacity, y, scale }}
+      style={{ opacity, y, scale, willChange: "transform, opacity" }}
     >
       {children}
     </motion.div>

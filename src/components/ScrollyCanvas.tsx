@@ -49,9 +49,8 @@ export default function ScrollyCanvas() {
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     }
 
-    // High quality image rendering
+    // Rely on default fast smoothing for sequential frames
     ctx.imageSmoothingEnabled = true;
-    ctx.imageSmoothingQuality = "high";
 
     // Object-fit: cover — 5% overscan to guarantee no gaps at any viewport
     const imgRatio = img.naturalWidth / img.naturalHeight;
