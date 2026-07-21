@@ -82,7 +82,7 @@ export default function Overlay() {
         >
           <motion.div className="flex flex-col items-center gap-4 md:gap-6 mt-16 md:mt-24 w-full text-white">
             <motion.span className="text-xs md:text-sm tracking-[0.2em] uppercase text-white/50 font-light text-center px-4">
-              B.E. AI & Data Science · CBIT Hyderabad · Open to internships
+              Pre-final year B.E. AI & Data Science · CBIT Hyderabad · Open to internships
             </motion.span>
             
             <h1 className="font-display text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight text-center px-4 leading-[1.1]">

@@ -11,7 +11,7 @@ const Experience = dynamic(() => import("@/components/Experience"));
 const Skills = dynamic(() => import("@/components/Skills"));
 const Projects = dynamic(() => import("@/components/Projects"));
 const Certifications = dynamic(() => import("@/components/Certifications"));
-const Store = dynamic(() => import("@/components/Store"));
+const Achievements = dynamic(() => import("@/components/Achievements"));
 const Contact = dynamic(() => import("@/components/Contact"));
 const ScrollProgress = dynamic(() => import("@/components/ScrollProgress"));
 
@@ -87,11 +87,11 @@ export default function Home() {
       {/* Certifications section */}
       <Certifications />
 
-      {/* Light transition → Store */}
+      {/* Light transition → Achievements */}
       <ThinDivider />
 
-      {/* Store Section */}
-      <Store />
+      {/* Achievements Section */}
+      <Achievements />
 
       {/* Major transition → Contact */}
       <FadeSpacer />

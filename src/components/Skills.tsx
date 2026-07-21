@@ -11,40 +11,22 @@ interface SkillCategory {
 
 const skillCategories: SkillCategory[] = [
   {
-    category: "Languages",
-    skills: ["Java", "Python", "JavaScript", "TypeScript", "C++", "SQL"],
+    category: "Full-Stack & Backend",
+    skills: ["Next.js 14", "TypeScript", "React", "Python", "FastAPI", "Spring Boot", "Firebase Firestore", "Apache Kafka", "MySQL", "Redis", "Docker", "Microservices"],
     accent: "hover:border-violet-400/40 hover:shadow-[0_0_15px_rgba(139,92,246,0.15)]",
     dotColor: "bg-violet-500 shadow-[0_0_10px_rgba(139,92,246,0.8)]",
   },
   {
-    category: "Frameworks & Libraries",
-    skills: ["Spring Boot", "React", "Next.js", "Node.js", "TensorFlow", "PyTorch"],
-    accent: "hover:border-sky-400/40 hover:shadow-[0_0_15px_rgba(56,189,248,0.15)]",
-    dotColor: "bg-sky-500 shadow-[0_0_10px_rgba(56,189,248,0.8)]",
-  },
-  {
-    category: "Databases",
-    skills: ["MySQL", "PostgreSQL", "MongoDB", "Firebase"],
-    accent: "hover:border-amber-400/40 hover:shadow-[0_0_15px_rgba(251,191,36,0.15)]",
-    dotColor: "bg-amber-500 shadow-[0_0_10px_rgba(251,191,36,0.8)]",
-  },
-  {
-    category: "AI/ML",
-    skills: ["NLP", "FAISS", "Computer Vision", "Transfer Learning", "LLM Integration", "Scikit-learn", "XGBoost", "Gradio"],
+    category: "AI / LLM Layer",
+    skills: ["LangChain", "LangGraph", "FAISS", "Agentic RAG", "LLM Inference", "Gemini 2.0 Flash", "Groq Llama 3.3 70B", "Hugging Face", "Ollama", "Prompt Engineering", "Fine-Tuning", "SHAP/LIME"],
     accent: "hover:border-emerald-400/40 hover:shadow-[0_0_15px_rgba(52,211,153,0.15)]",
     dotColor: "bg-emerald-500 shadow-[0_0_10px_rgba(52,211,153,0.8)]",
   },
   {
-    category: "DevOps & Cloud",
-    skills: ["Git", "Docker", "CI/CD", "REST APIs", "JWT", "Linux", "Maven"],
-    accent: "hover:border-fuchsia-400/40 hover:shadow-[0_0_15px_rgba(232,121,249,0.15)]",
-    dotColor: "bg-fuchsia-500 shadow-[0_0_10px_rgba(232,121,249,0.8)]",
-  },
-  {
-    category: "Developer Tools",
-    skills: ["Postman", "Jupyter Notebook", "VS Code", "Hugging Face"],
-    accent: "hover:border-rose-400/40 hover:shadow-[0_0_15px_rgba(251,113,133,0.15)]",
-    dotColor: "bg-rose-500 shadow-[0_0_10px_rgba(251,113,133,0.8)]",
+    category: "Testing & DevOps",
+    skills: ["Jest", "Playwright", "GitHub Actions", "ServiceNow ATF", "Git", "Linux", "SQL", "Shell Scripting"],
+    accent: "hover:border-sky-400/40 hover:shadow-[0_0_15px_rgba(56,189,248,0.15)]",
+    dotColor: "bg-sky-500 shadow-[0_0_10px_rgba(56,189,248,0.8)]",
   },
 ];
 

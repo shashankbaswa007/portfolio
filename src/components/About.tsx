@@ -54,7 +54,7 @@ export default function About() {
             variants={itemVariants}
             className="text-xl md:text-2xl lg:text-3xl font-light text-white/80 leading-[1.6]"
           >
-            I am a third-year AI and Data Science student at CBIT, Hyderabad, driven by a deep curiosity for how intelligence and engineering intersect. My focus is on building robust full-stack applications and deploying machine learning models that solve practical problems.
+            I am a pre-final year AI and Data Science student at CBIT, Hyderabad — a full-stack AI product engineer with end-to-end ownership across frontend, backend, and AI layers. I ship production applications and am currently co-authoring a peer-reviewed AI publication.
           </motion.p>
 
           {/* Paragraph 2 */}
