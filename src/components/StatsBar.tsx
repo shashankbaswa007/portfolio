@@ -24,9 +24,11 @@ function AnimatedNumber({ value, suffix = "", duration = 1.2 }: { value: number;
     }
   }, [isInView, motionValue, value]);
 
+  const renderedValue = displayValue as unknown as React.ReactNode;
+
   return (
     <span ref={ref}>
-      <motion.span>{displayValue as any}</motion.span>
+      <motion.span>{renderedValue}</motion.span>
       {suffix}
     </span>
   );
