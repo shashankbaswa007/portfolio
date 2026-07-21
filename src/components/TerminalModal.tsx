@@ -26,15 +26,15 @@ export default function TerminalModal({ isOpen, onClose }: TerminalModalProps) {
       await wait(400);
       setLines(l => [...l, "Authenticating... [OK]"]);
       await wait(500);
-      setLines(l => [...l, "Downloading Shashank_Baswa_Resume.pdf ..."]);
+      setLines(l => [...l, "Downloading Shashank_portfolio_resume.docx ..."]);
       await wait(800);
       setLines(l => [...l, "100% [==============================]"]);
       setLines(l => [...l, "Done! File successfully extracted."]);
       
       // Trigger actual download
       const link = document.createElement('a');
-      link.href = '/Shashank_Baswa_Resume%28portfolio_website%29.pdf';
-      link.download = 'Shashank_Baswa_Resume.pdf';
+      link.href = '/Shashank_portfolio_resume.docx';
+      link.download = 'Shashank_portfolio_resume.docx';
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
