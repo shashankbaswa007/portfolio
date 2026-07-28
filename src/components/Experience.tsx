@@ -32,7 +32,7 @@ const experiences: ExperienceItem[] = [
       "Earned ServiceNow Micro Certification for platform proficiency",
     ],
     type: "internship",
-    image: "/experience/upscalemedia-transformed (2).png",
+    image: "/experience/servicenow.svg",
     imageAlt: "ServiceNow enterprise platform workspace",
     imageFit: "contain",
     imageBg: "bg-white/[0.02]",
@@ -66,7 +66,7 @@ const experiences: ExperienceItem[] = [
       "Followed code review and delivery best practices across multiple sprint cycles",
     ],
     type: "internship",
-    image: "/experience/studio-mono.png",
+    image: "/experience/inamigos.png",
     imageAlt: "Collaborative web development environment",
   },
 ];
