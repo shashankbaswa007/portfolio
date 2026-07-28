@@ -32,7 +32,7 @@ const experiences: ExperienceItem[] = [
       "Earned ServiceNow Micro Certification for platform proficiency",
     ],
     type: "internship",
-    image: "/experience/servicenow.svg",
+    image: "/Users/shashi/Desktop/portfolio/public/experience/ServiceNow Logo SVG.svg",
     imageAlt: "ServiceNow enterprise platform workspace",
     imageFit: "contain",
     imageBg: "bg-white/[0.02]",
