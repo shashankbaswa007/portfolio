@@ -68,6 +68,7 @@ const experiences: ExperienceItem[] = [
     type: "internship",
     image: "/experience/upscalemedia-transformed (2).png",
     imageAlt: "Collaborative web development environment",
+    imageFit: "contain",
   },
 ];
 
