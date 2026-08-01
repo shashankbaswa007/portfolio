@@ -35,7 +35,7 @@ const experiences: ExperienceItem[] = [
     image: "/experience/servicenow-logo.svg",
     imageAlt: "ServiceNow enterprise platform workspace",
     imageFit: "contain",
-    imageBg: "bg-white/[0.02]",
+    imageBg: "bg-white p-4 rounded-xl",
   },
   {
     id: 2,
