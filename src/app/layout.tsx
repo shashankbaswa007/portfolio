@@ -26,6 +26,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://shashank-baswa.vercel.app"),
   title: "Shashank Baswa — Full-Stack & AI Engineer",
   description:
     "Portfolio of Shashank Sai Sri Baswa, a Full-Stack Software Engineer and AI/ML Engineer based in Hyderabad. Building production-grade AI applications.",
@@ -34,6 +35,15 @@ export const metadata: Metadata = {
     title: "Shashank Baswa — Full-Stack & AI Engineer",
     description: "Building production-grade AI systems and robust full-stack applications.",
     type: "website",
+    url: "https://shashank-baswa.vercel.app",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Shashank Baswa — Full-Stack & AI Engineer",
+      },
+    ],
   },
 };
 

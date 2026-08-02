@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState, useCallback } from "react";
-import { useScroll, useTransform, useMotionValueEvent } from "framer-motion";
+import { useScroll, useTransform, useMotionValueEvent, useReducedMotion } from "framer-motion";
 
 const TOTAL_FRAMES = 75;
 
@@ -11,6 +11,7 @@ function getFramePath(index: number): string {
 }
 
 export default function ScrollyCanvas() {
+  const shouldReduceMotion = useReducedMotion();
   const containerRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const imagesRef = useRef<HTMLImageElement[]>([]);
@@ -192,6 +193,12 @@ export default function ScrollyCanvas() {
   useMotionValueEvent(frameIndex, "change", (latest) => {
     targetFrameRef.current = Math.max(0, Math.min(Math.round(latest), TOTAL_FRAMES - 1));
   });
+
+  if (shouldReduceMotion) {
+    return (
+      <div className="absolute inset-0 z-0 w-full h-full pointer-events-none bg-[#121212]" id="scroll-canvas-container" />
+    );
+  }
 
   return (
     <div ref={containerRef} className="absolute inset-0 z-0 w-full h-full pointer-events-none" id="scroll-canvas-container">

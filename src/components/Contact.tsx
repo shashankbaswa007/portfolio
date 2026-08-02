@@ -45,7 +45,7 @@ export default function Contact() {
           transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
         >
           {/* Email */}
-          <a href="mailto:baswashashank123@gmail.com" className="group glass rounded-2xl p-6 flex flex-col items-center text-center hover:bg-white/[0.04] transition-all duration-300 transform hover:-translate-y-1">
+          <a href="mailto:baswashashank123@gmail.com" aria-label="Send an email to Shashank Baswa" className="group glass rounded-2xl p-6 flex flex-col items-center text-center hover:bg-white/[0.04] transition-all duration-300 transform hover:-translate-y-1">
             <div className="w-16 h-16 rounded-full bg-white/[0.02] border border-white/5 flex items-center justify-center text-white/50 group-hover:text-violet-400 group-hover:border-violet-500/30 transition-all duration-300 mb-4 shadow-[0_4px_20px_transparent] group-hover:shadow-[0_4px_20px_rgba(139,92,246,0.15)]">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
             </div>
@@ -54,7 +54,7 @@ export default function Contact() {
           </a>
           
           {/* LinkedIn */}
-          <a href="https://www.linkedin.com/in/shashank-baswa-27a783301/" target="_blank" rel="noopener noreferrer" className="group glass rounded-2xl p-6 flex flex-col items-center text-center hover:bg-white/[0.04] transition-all duration-300 transform hover:-translate-y-1">
+          <a href="https://www.linkedin.com/in/shashank-baswa-27a783301/" target="_blank" rel="noopener noreferrer" aria-label="Visit Shashank Baswa's LinkedIn profile" className="group glass rounded-2xl p-6 flex flex-col items-center text-center hover:bg-white/[0.04] transition-all duration-300 transform hover:-translate-y-1">
             <div className="w-16 h-16 rounded-full bg-white/[0.02] border border-white/5 flex items-center justify-center text-white/50 group-hover:text-blue-400 group-hover:border-blue-500/30 transition-all duration-300 mb-4 shadow-[0_4px_20px_transparent] group-hover:shadow-[0_4px_20px_rgba(59,130,246,0.15)]">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" /><rect x="2" y="9" width="4" height="12" /><circle cx="4" cy="4" r="2" /></svg>
             </div>
@@ -63,7 +63,7 @@ export default function Contact() {
           </a>
 
           {/* GitHub */}
-          <a href="https://github.com/shashankbaswa007" target="_blank" rel="noopener noreferrer" className="group glass rounded-2xl p-6 flex flex-col items-center text-center hover:bg-white/[0.04] transition-all duration-300 transform hover:-translate-y-1">
+          <a href="https://github.com/shashankbaswa007" target="_blank" rel="noopener noreferrer" aria-label="Visit Shashank Baswa's GitHub profile" className="group glass rounded-2xl p-6 flex flex-col items-center text-center hover:bg-white/[0.04] transition-all duration-300 transform hover:-translate-y-1">
             <div className="w-16 h-16 rounded-full bg-white/[0.02] border border-white/5 flex items-center justify-center text-white/50 group-hover:text-white group-hover:border-white/30 transition-all duration-300 mb-4 shadow-[0_4px_20px_transparent] group-hover:shadow-[0_4px_20px_rgba(255,255,255,0.1)]">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" /></svg>
             </div>
@@ -72,7 +72,7 @@ export default function Contact() {
           </a>
 
           {/* Kaggle */}
-          <a href="https://kaggle.com/shashankbaswa" target="_blank" rel="noopener noreferrer" className="group glass rounded-2xl p-6 flex flex-col items-center text-center hover:bg-white/[0.04] transition-all duration-300 transform hover:-translate-y-1">
+          <a href="https://kaggle.com/shashankbaswa" target="_blank" rel="noopener noreferrer" aria-label="Visit Shashank Baswa's Kaggle profile" className="group glass rounded-2xl p-6 flex flex-col items-center text-center hover:bg-white/[0.04] transition-all duration-300 transform hover:-translate-y-1">
             <div className="w-16 h-16 rounded-full bg-white/[0.02] border border-white/5 flex items-center justify-center text-white/50 group-hover:text-sky-400 group-hover:border-sky-500/30 transition-all duration-300 mb-4 shadow-[0_4px_20px_transparent] group-hover:shadow-[0_4px_20px_rgba(56,189,248,0.15)]">
               <span className="font-bold text-2xl font-serif">K</span>
             </div>

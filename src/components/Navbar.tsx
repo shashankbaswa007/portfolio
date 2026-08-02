@@ -87,6 +87,7 @@ export default function Navbar() {
               <a
                 href={link.href}
                 onClick={(e) => handleNavClick(e, link.href)}
+                aria-label={`Navigate to ${link.name} section`}
                 className="relative px-3 sm:px-4 py-1.5 sm:py-2 text-sm transition-colors duration-300 whitespace-nowrap block"
               >
                 <span
