@@ -20,6 +20,11 @@ export default function ScrollyCanvas() {
   const targetFrameRef = useRef<number>(0);
   const [isLoaded, setIsLoaded] = useState(false);
   const [loadProgress, setLoadProgress] = useState(0);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -194,7 +199,7 @@ export default function ScrollyCanvas() {
     targetFrameRef.current = Math.max(0, Math.min(Math.round(latest), TOTAL_FRAMES - 1));
   });
 
-  if (shouldReduceMotion) {
+  if (mounted && shouldReduceMotion) {
     return (
       <div className="absolute inset-0 z-0 w-full h-full pointer-events-none bg-[#121212]" id="scroll-canvas-container" />
     );
