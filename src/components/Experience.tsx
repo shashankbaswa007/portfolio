@@ -88,23 +88,6 @@ const experiences: ExperienceItem[] = [
     image: "/experience/velocity-labs.png",
     imageAlt: "Advanced AI and Machine Learning research workspace",
   },
-  {
-    id: 5,
-    role: "Web Developer Intern",
-    company: "InAmigos Foundation (Remote)",
-    period: "May 2026",
-    description:
-      "Engineered full-stack web interfaces and automation tooling in an Agile sprint workflow, improving operational efficiency for 10,000+ NGO beneficiaries following code review and delivery best practices.",
-    highlights: [
-      "Engineered full-stack web interfaces and automation tooling in an Agile sprint workflow.",
-      "Improved operational efficiency for 10,000+ NGO beneficiaries.",
-      "Followed code review and delivery best practices across multiple sprint cycles.",
-    ],
-    type: "internship",
-    image: "/experience/upscalemedia-transformed (2).png",
-    imageAlt: "Collaborative web development environment",
-    imageFit: "contain",
-  },
 ];
 
 const typeLabels: Record<string, string> = {
