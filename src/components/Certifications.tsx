@@ -5,6 +5,43 @@ import { motion } from "framer-motion";
 
 /* ── Brand SVG Icons ─────────────────────────────────────────────── */
 
+const AWSIcon = () => (
+  <svg viewBox="0 0 48 48" width="28" height="28" fill="none">
+    <path
+      d="M14.5 24.5C14.5 22 16.5 18 21.5 18C26.5 18 27.5 21.5 27.5 24V28.5C26 29.5 23.5 30 21.5 30C17.5 30 14.5 27.5 14.5 24.5Z"
+      stroke="#FF9900"
+      strokeWidth="2.5"
+    />
+    <path
+      d="M10 35C18 40 30 40 38 35"
+      stroke="#FF9900"
+      strokeWidth="3"
+      strokeLinecap="round"
+    />
+    <path
+      d="M35 32L38.5 35L35 38"
+      stroke="#FF9900"
+      strokeWidth="3"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+  </svg>
+);
+
+const GCPIcon = () => (
+  <svg viewBox="0 0 48 48" width="28" height="28" fill="none">
+    <path
+      d="M24 16C28.4 16 32 19.6 32 24C32 28.4 28.4 32 24 32C19.6 32 16 28.4 16 24C16 19.6 19.6 16 24 16Z"
+      stroke="#4285F4"
+      strokeWidth="3"
+    />
+    <path d="M24 10V16" stroke="#EA4335" strokeWidth="3.5" strokeLinecap="round" />
+    <path d="M24 32V38" stroke="#34A853" strokeWidth="3.5" strokeLinecap="round" />
+    <path d="M10 24H16" stroke="#FBBC05" strokeWidth="3.5" strokeLinecap="round" />
+    <path d="M32 24H38" stroke="#4285F4" strokeWidth="3.5" strokeLinecap="round" />
+  </svg>
+);
+
 const IBMIcon = () => (
   <svg viewBox="0 0 48 48" width="28" height="28" fill="none">
     <g fill="#1F70C1">
@@ -61,6 +98,23 @@ const MongoDBIcon = () => (
   </svg>
 );
 
+const SpringIcon = () => (
+  <svg viewBox="0 0 48 48" width="28" height="28" fill="none">
+    <path
+      d="M24 6L39 15V33L24 42L9 33V15L24 6Z"
+      stroke="#6DB33F"
+      strokeWidth="3"
+      strokeLinejoin="round"
+    />
+    <path
+      d="M24 16C20 16 16 20 16 25C16 29 20 32 25 32C29 32 32 29 32 24"
+      stroke="#6DB33F"
+      strokeWidth="2.5"
+      strokeLinecap="round"
+    />
+  </svg>
+);
+
 const UdemyIcon = () => (
   <svg viewBox="0 0 48 48" width="28" height="28" fill="none">
     <path
@@ -74,19 +128,16 @@ const UdemyIcon = () => (
 
 const BCGIcon = () => (
   <svg viewBox="0 0 48 48" width="28" height="28" fill="none">
-    {/* Rising bar chart — data science */}
     <rect x="6"  y="30" width="7" height="12" rx="1.5" fill="#059669" />
     <rect x="16" y="22" width="7" height="20" rx="1.5" fill="#10B981" />
     <rect x="26" y="14" width="7" height="28" rx="1.5" fill="#34D399" />
     <rect x="36" y="6"  width="7" height="36" rx="1.5" fill="#6EE7B7" />
-    {/* Trend line */}
     <path d="M9.5 30 L19.5 22 L29.5 14 L39.5 6" stroke="#047857" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
   </svg>
 );
 
 const ServiceNowIcon = () => (
   <svg viewBox="0 0 48 48" width="28" height="28" fill="none">
-    {/* Outer gear teeth */}
     <path
       d="M24 4 L27.5 8 L33 6.5 L33.5 12.5 L39.5 14 L37.5 19.5 L42 24 L37.5 28.5 L39.5 34 L33.5 35.5 L33 41.5 L27.5 40 L24 44 L20.5 40 L15 41.5 L14.5 35.5 L8.5 34 L10.5 28.5 L6 24 L10.5 19.5 L8.5 14 L14.5 12.5 L15 6.5 L20.5 8Z"
       fill="#81C506"
@@ -95,13 +146,10 @@ const ServiceNowIcon = () => (
       strokeWidth="1.5"
       strokeLinejoin="round"
     />
-    {/* Inner circle */}
     <circle cx="24" cy="24" r="10" stroke="#81C506" strokeWidth="2.5" />
-    {/* Workflow nodes inside */}
     <circle cx="20" cy="21" r="2.5" fill="#81C506" />
     <circle cx="28" cy="21" r="2.5" fill="#81C506" />
     <circle cx="24" cy="28" r="2.5" fill="#81C506" />
-    {/* Connecting lines */}
     <line x1="22" y1="22" x2="26" y2="22" stroke="#81C506" strokeWidth="1.5" strokeLinecap="round" />
     <line x1="21" y1="23" x2="23" y2="27" stroke="#81C506" strokeWidth="1.5" strokeLinecap="round" />
     <line x1="27" y1="23" x2="25" y2="27" stroke="#81C506" strokeWidth="1.5" strokeLinecap="round" />
@@ -117,13 +165,49 @@ interface Certification {
   date: string;
   credentialId?: string;
   icon: React.ReactNode;
-  color: string; // Gradient accent
+  color: string;
   skills: string[];
 }
 
 const certifications: Certification[] = [
   {
     id: 1,
+    title: "AWS Cloud Practitioner",
+    issuer: "Amazon Web Services (AWS)",
+    date: "2025",
+    icon: <AWSIcon />,
+    color: "from-amber-500/20 via-orange-500/10 to-transparent",
+    skills: ["Cloud Architecture", "AWS IAM", "S3", "EC2", "Cloud Security & Compliance"],
+  },
+  {
+    id: 2,
+    title: "Google Cloud Data Analytics",
+    issuer: "Google Cloud",
+    date: "2025",
+    icon: <GCPIcon />,
+    color: "from-blue-500/20 via-sky-500/10 to-transparent",
+    skills: ["BigQuery", "Data Analytics", "GCP Pipelines", "Cloud SQL", "Data Warehousing"],
+  },
+  {
+    id: 3,
+    title: "Spring Boot 4 & Hibernate",
+    issuer: "Udemy",
+    date: "Mar 2025",
+    icon: <SpringIcon />,
+    color: "from-emerald-500/20 via-green-500/10 to-transparent",
+    skills: ["Java 17", "Spring Boot", "Hibernate ORM", "Spring Security", "REST APIs"],
+  },
+  {
+    id: 4,
+    title: "Python Essentials 1",
+    issuer: "Cisco Networking Academy",
+    date: "Aug 2024",
+    icon: <CiscoIcon />,
+    color: "from-sky-500/20 via-cyan-500/10 to-transparent",
+    skills: ["Python", "Data Structures", "Algorithms", "Object-Oriented Programming"],
+  },
+  {
+    id: 5,
     title: "Applied Artificial Intelligence",
     issuer: "IBM SkillsBuild",
     date: "Dec 2024",
@@ -132,16 +216,7 @@ const certifications: Certification[] = [
     skills: ["AI Ethics", "Machine Learning", "Neural Networks"],
   },
   {
-    id: 2,
-    title: "Python Programming Essentials",
-    issuer: "Cisco Networking Academy",
-    date: "Aug 2024",
-    icon: <CiscoIcon />,
-    color: "from-amber-500/20 via-yellow-500/10 to-transparent",
-    skills: ["Python", "Data Structures", "Algorithms"],
-  },
-  {
-    id: 3,
+    id: 6,
     title: "MongoDB with Python",
     issuer: "MongoDB University",
     date: "Feb 2024",
@@ -150,7 +225,7 @@ const certifications: Certification[] = [
     skills: ["NoSQL", "PyMongo", "Database Design"],
   },
   {
-    id: 4,
+    id: 7,
     title: "Complete Full-Stack Web Development Bootcamp",
     issuer: "Udemy",
     date: "Nov 2024",
@@ -159,49 +234,22 @@ const certifications: Certification[] = [
     skills: ["React", "Node.js", "Express", "MERN Stack"],
   },
   {
-    id: 5,
-    title: "Spring Boot & Hibernate for Beginners",
-    issuer: "Udemy",
-    date: "Mar 2025",
-    icon: <UdemyIcon />,
-    color: "from-sky-500/20 via-cyan-500/10 to-transparent",
-    skills: ["Java", "Spring Boot", "JPA", "REST APIs"],
-  },
-  {
-    id: 6,
+    id: 8,
     title: "Data Science Job Simulation",
     issuer: "BCGX (Issued by Forage)",
-    date: "June 2, 2026",
+    date: "June 2026",
     icon: <BCGIcon />,
-    color: "from-emerald-500/20 via-teal-500/10 to-transparent",
-    skills: ["Understanding business context & problem framing", "Exploratory Data Analysis (EDA)", "Data Cleaning", "Feature Engineering", "Modeling and Evaluation", "Delivering Insights & Recommendations"],
-  },
-  {
-    id: 7,
-    title: "Welcome to ServiceNow",
-    issuer: "ServiceNow",
-    date: "June 11, 2026",
-    icon: <ServiceNowIcon />,
-    color: "from-lime-500/20 via-green-500/10 to-transparent",
-    skills: ["Platform Analytics", "Service Catalog", "Visual Task Boards", "ServiceNow AI Platform", "Knowledge Management"],
-  },
-  {
-    id: 8,
-    title: "Micro-Certification - Welcome to ServiceNow (Zurich)",
-    issuer: "ServiceNow",
-    date: "June 14, 2026",
-    icon: <ServiceNowIcon />,
-    color: "from-lime-500/20 via-green-500/10 to-transparent",
-    skills: ["ServiceNow AI Platform", "Platform Analytics", "Service Catalog", "Visual Task Boards", "Knowledge Management"],
+    color: "from-teal-500/20 via-emerald-500/10 to-transparent",
+    skills: ["Exploratory Data Analysis (EDA)", "Feature Engineering", "Predictive Modeling", "Insights & Delivery"],
   },
   {
     id: 9,
-    title: "ServiceNow Administration Fundamentals - On Demand",
+    title: "Micro-Certification - Welcome to ServiceNow",
     issuer: "ServiceNow",
-    date: "June 14, 2026",
+    date: "June 2026",
     icon: <ServiceNowIcon />,
     color: "from-lime-500/20 via-green-500/10 to-transparent",
-    skills: ["Service Catalog", "Platform Analytics Experience", "Workflow Studio", "ServiceNow AI Platform", "Incident Management"],
+    skills: ["ServiceNow AI Platform", "Platform Analytics", "Service Catalog", "Visual Task Boards", "ITSM"],
   },
 ];
 
@@ -249,8 +297,7 @@ export default function Certifications() {
           <span className="text-gradient">Certifications</span>
         </h2>
         <p className="mt-4 text-lg text-white/40 font-light max-w-xl">
-          Industry-recognized certifications that validate expertise across
-          cloud, frontend, and emerging technologies.
+          Industry-recognized certifications validating expertise in Cloud Architecture, AI systems, Spring Boot, and Full-Stack Engineering.
         </p>
       </motion.div>
 
@@ -286,7 +333,7 @@ const CertificationCard = memo(function CertificationCard({ cert }: { cert: Cert
       onMouseMove={handleMouseMove}
       className="group relative rounded-3xl bg-white/[0.02] border border-white/5 cursor-pointer overflow-hidden block shadow-xl transition-transform duration-500 hover:-translate-y-2 transform-gpu"
     >
-      {/* Top Gradient Edge Accent (Remains Static) */}
+      {/* Top Gradient Edge Accent */}
       <div
         className={`absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r ${cert.color} opacity-40 group-hover:opacity-100 transition-opacity duration-500`}
       />

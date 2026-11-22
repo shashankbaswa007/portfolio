@@ -38,7 +38,7 @@ function AnimatedNumber({ value, suffix = "", duration = 1.2 }: { value: number;
 
 const stats = [
   { value: 9.03, suffix: " / 10", label: "GPA — Dean's List", accent: "from-violet-500 to-fuchsia-500" },
-  { value: 5, suffix: "", label: "Production Projects", accent: "from-sky-500 to-cyan-500" },
+  { value: 370, suffix: "+", label: "DSA Problems Solved", accent: "from-sky-500 to-cyan-500" },
   { value: 1, suffix: "st Place", label: "National Hackathon", accent: "from-emerald-500 to-teal-500" },
 ];
 

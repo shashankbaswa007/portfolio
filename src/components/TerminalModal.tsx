@@ -21,25 +21,25 @@ export default function TerminalModal({ isOpen, onClose }: TerminalModalProps) {
       const wait = (ms: number) => new Promise(res => setTimeout(res, ms));
       
       setLines(["> shashank fetch --resume"]);
-      await wait(600);
-      setLines(l => [...l, "Connecting to servers... [OK]"]);
-      await wait(400);
-      setLines(l => [...l, "Authenticating... [OK]"]);
       await wait(500);
-      setLines(l => [...l, "Downloading Shashank_portfolio_resume.docx ..."]);
-      await wait(800);
+      setLines(l => [...l, "Connecting to servers... [OK]"]);
+      await wait(350);
+      setLines(l => [...l, "Authenticating credentials... [OK]"]);
+      await wait(400);
+      setLines(l => [...l, "Downloading Shashank_Baswa_Resume.pdf ..."]);
+      await wait(700);
       setLines(l => [...l, "100% [==============================]"]);
-      setLines(l => [...l, "Done! File successfully extracted."]);
+      setLines(l => [...l, "Done! Latest resume successfully downloaded."]);
       
-      // Trigger actual download
+      // Trigger actual download of latest PDF resume
       const link = document.createElement('a');
-      link.href = '/Shashank_portfolio_resume.docx';
-      link.download = 'Shashank_portfolio_resume.docx';
+      link.href = '/Shashank_Baswa_Resume.pdf';
+      link.download = 'Shashank_Baswa_Resume.pdf';
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
 
-      await wait(2400);
+      await wait(2000);
       onClose();
     };
 

@@ -54,7 +54,7 @@ export default function About() {
             variants={itemVariants}
             className="text-xl md:text-2xl lg:text-3xl font-light text-white/80 leading-[1.6]"
           >
-            I am a pre-final year AI and Data Science student at CBIT, Hyderabad — a full-stack AI product engineer with end-to-end ownership across frontend, backend, and AI layers. I ship production applications and am currently co-authoring a peer-reviewed AI publication.
+            I am a B.E. Artificial Intelligence & Data Science student at CBIT, Hyderabad (Sep 2023 – Sep 2027) with a <span className="text-white font-medium">9.03/10.0 GPA (Dean’s List, Top 10% all semesters)</span>. Currently an AI Automation Intern at Altera and Software Engineering Intern at Chrysolite United Development.
           </motion.p>
 
           {/* Paragraph 2 */}
@@ -62,10 +62,10 @@ export default function About() {
             variants={itemVariants}
             className="text-xl md:text-2xl lg:text-3xl font-light text-white/80 leading-[1.6]"
           >
-            From winning 1st place at a national hackathon to serving as my department&apos;s Placement Coordinator, I thrive in environments where execution matters. Whether I am designing semantic search pipelines or leading a team, I care about shipping code that scales and an experience that feels right.
+            From winning 1st place at the CBIT National Hackathon to serving as Placement Coordinator and solving 370+ DSA problems, I thrive at the intersection of domain-specific AI automation, distributed backend systems, and high-performance product execution.
           </motion.p>
 
-          {/* Philosophy Card */}
+          {/* Education & Core Foundations Card */}
           <motion.div
             variants={itemVariants}
             className="w-full text-left bg-white/[0.02] border border-white/5 p-8 md:p-10 rounded-3xl backdrop-blur-sm mt-6 relative overflow-hidden group"
@@ -80,7 +80,30 @@ export default function About() {
               style={{ transformOrigin: "top" }}
             />
 
-            <h3 className="text-sm tracking-[0.2em] font-medium text-[#a78bfa] uppercase mb-6">How I Think & Build</h3>
+            <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 mb-6">
+              <h3 className="text-sm tracking-[0.2em] font-medium text-[#a78bfa] uppercase">Education & Core Foundations</h3>
+              <span className="text-xs font-mono text-white/40 px-3 py-1 rounded-full bg-white/[0.03] border border-white/5">
+                Sep 2023 – Sep 2027
+              </span>
+            </div>
+
+            <div className="mb-6 pb-6 border-b border-white/[0.05]">
+              <h4 className="text-lg md:text-xl font-bold text-white/90">B.E. – Artificial Intelligence & Data Science</h4>
+              <p className="text-sm text-sky-400/90 font-medium mt-1">Chaitanya Bharathi Institute of Technology (CBIT), Hyderabad</p>
+              <p className="text-sm text-white/50 font-light mt-2">
+                GPA: <strong className="text-white font-medium">9.03 / 10.0</strong> · Dean’s List · Top 10% all semesters
+              </p>
+              <div className="mt-3 flex flex-wrap gap-2 items-center text-xs text-white/40 font-mono">
+                <span className="text-white/60 font-sans font-medium">Relevant Coursework:</span>
+                {["OOP", "DBMS", "Data Structures", "Algorithms", "OS"].map((c) => (
+                  <span key={c} className="px-2.5 py-1 rounded bg-white/[0.03] border border-white/5 text-white/60">
+                    {c}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            <h3 className="text-sm tracking-[0.2em] font-medium text-[#a78bfa] uppercase mb-5">How I Think & Build</h3>
             <motion.ul
               className="space-y-5 text-white/70 font-light text-base md:text-lg"
               variants={containerVariants}
@@ -90,15 +113,15 @@ export default function About() {
             >
               <motion.li variants={bulletVariants} className="flex items-start gap-4">
                 <span className="text-emerald-400 mt-1 flex-shrink-0">✦</span>
-                <span><strong className="text-white/90 font-medium">AI as a Utility:</strong> I treat machine learning as a tool for creating value, not just an academic exercise. Algorithms should serve the user seamlessly.</span>
+                <span><strong className="text-white/90 font-medium">Domain-Grounded AI:</strong> I bridge AI models with real engineering context—optimizing token budgets, designing verification agents, and enforcing confidentiality.</span>
               </motion.li>
               <motion.li variants={bulletVariants} className="flex items-start gap-4">
                 <span className="text-sky-400 mt-1 flex-shrink-0">✦</span>
-                <span><strong className="text-white/90 font-medium">End-to-End Ownership:</strong> I prefer understanding the whole stack—from database schemas and containerization down to the final frontend interactions.</span>
+                <span><strong className="text-white/90 font-medium">End-to-End Ownership:</strong> From Java 17/Spring Boot backends, Kafka messaging, and schema design to responsive React frontends and rigorous CI/CD.</span>
               </motion.li>
               <motion.li variants={bulletVariants} className="flex items-start gap-4">
                 <span className="text-fuchsia-400 mt-1 flex-shrink-0">✦</span>
-                <span><strong className="text-white/90 font-medium">Pragmatic Problem Solving:</strong> I focus on writing clean, scalable code that addresses real needs without over-engineering the solution.</span>
+                <span><strong className="text-white/90 font-medium">Pragmatic Execution:</strong> I focus on writing reliable, resilient code (circuit breakers, SAST audits, rate limits) that solves real problems without unnecessary complexity.</span>
               </motion.li>
             </motion.ul>
           </motion.div>
@@ -111,7 +134,7 @@ export default function About() {
               href="#contact-section"
               className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-white text-black font-semibold hover:scale-105 active:scale-95 transition-all duration-300 shadow-[0_0_20px_rgba(255,255,255,0.1)]"
             >
-              Let&apos;s talk internships
+              Let&apos;s talk opportunities
             </a>
           </motion.div>
         </motion.div>

@@ -11,22 +11,83 @@ interface SkillCategory {
 
 const skillCategories: SkillCategory[] = [
   {
-    category: "Full-Stack & Backend",
-    skills: ["Next.js 14", "TypeScript", "React", "Python", "FastAPI", "Spring Boot", "Firebase Firestore", "Apache Kafka", "MySQL", "Redis", "Docker", "Microservices"],
+    category: "Languages & Databases",
+    skills: [
+      "Java",
+      "Python",
+      "JavaScript",
+      "TypeScript",
+      "C/C++",
+      "SQL",
+      "MySQL",
+      "Redis",
+    ],
     accent: "hover:border-violet-400/40 hover:shadow-[0_0_15px_rgba(139,92,246,0.15)]",
     dotColor: "bg-violet-500 shadow-[0_0_10px_rgba(139,92,246,0.8)]",
   },
   {
-    category: "AI / LLM Layer",
-    skills: ["LangChain", "LangGraph", "FAISS", "Agentic RAG", "LLM Inference", "Gemini 2.0 Flash", "Groq Llama 3.3 70B", "Hugging Face", "Ollama", "Prompt Engineering", "Fine-Tuning", "SHAP/LIME"],
+    category: "AI & Automation",
+    skills: [
+      "AI-Assisted Dev (GitHub Copilot, Cursor, Glean)",
+      "AI Credit & Token Optimization",
+      "Domain-Specific Agent Design",
+      "Document Verification & Validation Workflows",
+      "Agentic RAG",
+      "LangChain",
+      "LangGraph",
+      "FAISS",
+      "Gemini 2.0 Flash",
+      "Groq Llama 3.3 70B",
+      "Hugging Face",
+      "SHAP/LIME",
+    ],
     accent: "hover:border-emerald-400/40 hover:shadow-[0_0_15px_rgba(52,211,153,0.15)]",
     dotColor: "bg-emerald-500 shadow-[0_0_10px_rgba(52,211,153,0.8)]",
   },
   {
-    category: "Testing & DevOps",
-    skills: ["Jest", "Playwright", "GitHub Actions", "ServiceNow ATF", "Git", "Linux", "SQL", "Shell Scripting"],
+    category: "Frameworks",
+    skills: [
+      "Spring Boot",
+      "Spring Security",
+      "Hibernate ORM",
+      "React",
+      "Next.js",
+      "FastAPI",
+      "Node.js",
+      "Tailwind CSS",
+    ],
+    accent: "hover:border-amber-400/40 hover:shadow-[0_0_15px_rgba(251,191,36,0.15)]",
+    dotColor: "bg-amber-500 shadow-[0_0_10px_rgba(251,191,36,0.8)]",
+  },
+  {
+    category: "DevOps, Cloud & Testing",
+    skills: [
+      "Git",
+      "CI/CD (GitHub Actions)",
+      "Docker",
+      "AWS",
+      "Google Cloud (GCP)",
+      "Jest",
+      "Playwright",
+      "Pytest",
+      "ServiceNow ATF",
+    ],
     accent: "hover:border-sky-400/40 hover:shadow-[0_0_15px_rgba(56,189,248,0.15)]",
     dotColor: "bg-sky-500 shadow-[0_0_10px_rgba(56,189,248,0.8)]",
+  },
+  {
+    category: "Security & Methods",
+    skills: [
+      "AES-256",
+      "JWT",
+      "OAuth",
+      "RBAC",
+      "CodeQL SAST",
+      "Agile & Scrum SDLC",
+      "OOP",
+    ],
+    accent: "hover:border-fuchsia-400/40 hover:shadow-[0_0_15px_rgba(217,70,239,0.15)]",
+    dotColor: "bg-fuchsia-500 shadow-[0_0_10px_rgba(217,70,239,0.8)]",
   },
 ];
 
@@ -85,13 +146,13 @@ export default function Skills() {
             <span className="text-gradient">Skills</span>
           </h2>
           <p className="mt-4 text-lg text-white/40 font-light max-w-xl">
-            A comprehensive toolkit for building production-ready applications and intelligent AI systems.
+            A comprehensive technical toolkit grounded in languages, frameworks, cloud architecture, and domain-specific AI automation.
           </p>
         </motion.div>
       </div>
 
       <motion.div 
-        className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12"
+        className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10"
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
@@ -103,13 +164,13 @@ export default function Skills() {
               <span className={`w-2 h-2 rounded-full ${group.dotColor}`} />
               {group.category}
             </h3>
-            <motion.div className="flex flex-wrap gap-3" variants={groupVariants}>
+            <motion.div className="flex flex-wrap gap-2.5" variants={groupVariants}>
               {group.skills.map((skill) => (
                 <motion.div
                   key={skill}
                   variants={pillVariants}
                   whileHover={{ scale: 1.05, y: -2 }}
-                  className={`px-4 py-2 rounded-full glass border border-white/10 text-sm md:text-base text-white/70 tracking-wide hover:bg-white/10 hover:text-white transition-all duration-300 cursor-default will-change-transform ${group.accent}`}
+                  className={`px-3.5 py-1.5 rounded-full glass border border-white/10 text-xs md:text-sm text-white/70 tracking-wide hover:bg-white/10 hover:text-white transition-all duration-300 cursor-default will-change-transform ${group.accent}`}
                 >
                   {skill}
                 </motion.div>

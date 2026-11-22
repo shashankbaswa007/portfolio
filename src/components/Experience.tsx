@@ -21,15 +21,50 @@ interface ExperienceItem {
 const experiences: ExperienceItem[] = [
   {
     id: 1,
-    role: "ServiceNow x AICTE Intern",
-    company: "ServiceNow (AICTE Certified)",
-    period: "Jun 2026 — Jul 2026",
+    role: "AI Automation Intern",
+    company: "Altera, Hyderabad",
+    period: "Nov 2026 – Present",
     description:
-      "Designed Flow Designer automation scripts and ATF test workflows on a live enterprise platform; integrated Agentic AI into ITSM product flows and published structured execution reports — full-stack ownership of an AI-augmented enterprise feature.",
+      "Ramped up on the semiconductor domain, building working command of its terminology, document types, and verification practices to ground AI solutions in real engineering context. Designing domain-specific AI agents for technical document verification and validation while optimizing enterprise AI credit and token consumption.",
     highlights: [
-      "Built Flow Designer automation scripts and ATF test workflows on a live ServiceNow enterprise instance",
-      "Integrated Agentic AI into ITSM product flows, publishing structured execution reports for stakeholders",
-      "Earned ServiceNow Micro Certification for platform proficiency",
+      "Ramped up on the semiconductor domain, building working command of its terminology, document types, and verification practices to ground AI solutions in real engineering context.",
+      "Designing domain-specific AI agents for verification and validation of technical documents, and identifying workflows where AI automation can be integrated into existing semiconductor processes.",
+      "Working daily with various AI tools under an enterprise confidentiality framework, optimizing AI credit and token usage across tools.",
+    ],
+    type: "internship",
+    image: "/experience/altera-logo.svg",
+    imageAlt: "Altera, An Intel Company - AI Automation Internship",
+    imageFit: "contain",
+    imageBg: "bg-[#080e1e] p-6 rounded-xl flex items-center justify-center border border-sky-500/10",
+  },
+  {
+    id: 2,
+    role: "Software Engineering Intern",
+    company: "Chrysolite United Development",
+    period: "Aug 2026 – Present",
+    description:
+      "Built responsive React front-ends and scalable REST APIs in Python and JavaScript, optimizing relational database queries and schemas for enterprise web applications in an Agile/Scrum team.",
+    highlights: [
+      "Built responsive React front-ends and scalable REST APIs in Python and JavaScript, optimizing relational database queries and schemas for enterprise web applications.",
+      "Worked in an Agile/Scrum team through daily stand-ups, sprint planning, and peer Git code reviews across production deployments.",
+    ],
+    type: "internship",
+    image: "/experience/chrysolite.png",
+    imageAlt: "Chrysolite United Development - Software Engineering Intern",
+    imageFit: "contain",
+    imageBg: "bg-white p-6 rounded-xl flex items-center justify-center",
+  },
+  {
+    id: 3,
+    role: "ServiceNow Virtual Intern",
+    company: "ServiceNow",
+    period: "Jun 2026 – Jul 2026",
+    description:
+      "Implemented automated testing and verification on live cloud instances, resolving workflow regression bottlenecks before production releases. Designed Flow Designer automation scripts and integrated Agentic AI into ITSM product flows.",
+    highlights: [
+      "Implemented automated testing and verification on live cloud instances, resolving workflow regression bottlenecks before production releases.",
+      "Built Flow Designer automation scripts and ATF test workflows on a live ServiceNow enterprise instance.",
+      "Integrated Agentic AI into ITSM product flows, publishing structured execution reports for stakeholders.",
     ],
     type: "internship",
     image: "/experience/servicenow-logo.svg",
@@ -38,32 +73,32 @@ const experiences: ExperienceItem[] = [
     imageBg: "bg-white p-4 rounded-xl",
   },
   {
-    id: 2,
-    role: "Machine Learning Research Assistant",
-    company: "AI and Data Science Department, CBIT",
-    period: "Mar 2024 — Apr 2024",
+    id: 4,
+    role: "ML Research Assistant",
+    company: "AI & Data Science Dept., CBIT",
+    period: "Mar 2024 – Apr 2024",
     description:
-      "Fine-tuned computer vision models for automated medical diagnostics and built an end-to-end MLOps pipeline for clinical inference.",
+      "Engineered modular Python scripts and data pipelines to clean and validate large-scale datasets, improving processing turnaround by 25%. Fine-tuned deep learning models for clinical diagnostic inference.",
     highlights: [
-      "Fine-tuned EfficientNetB3 on 10,000+ dermoscopic images using transfer learning, achieving 92% accuracy and 97% AUC with SHAP/LIME explainability",
-      "Built end-to-end MLOps pipeline reducing diagnostic turnaround by 25%",
-      "Deployed clinical inference system on Hugging Face Spaces via Gradio with 4-tier risk scoring",
+      "Engineered modular Python scripts and data pipelines to clean and validate large-scale datasets, improving processing turnaround by 25%.",
+      "Fine-tuned EfficientNetB3 on 10,000+ dermoscopic images using transfer learning, achieving 92% accuracy and 97% AUC with SHAP/LIME explainability.",
+      "Deployed clinical inference system on Hugging Face Spaces via Gradio with 4-tier risk scoring.",
     ],
     type: "part-time",
     image: "/experience/velocity-labs.png",
-    imageAlt: "Advanced AI and Machine Learning workspace with data visualizations",
+    imageAlt: "Advanced AI and Machine Learning research workspace",
   },
   {
-    id: 3,
+    id: 5,
     role: "Web Developer Intern",
     company: "InAmigos Foundation (Remote)",
     period: "May 2026",
     description:
       "Engineered full-stack web interfaces and automation tooling in an Agile sprint workflow, improving operational efficiency for 10,000+ NGO beneficiaries following code review and delivery best practices.",
     highlights: [
-      "Engineered full-stack web interfaces and automation tooling in an Agile sprint workflow",
-      "Improved operational efficiency for 10,000+ NGO beneficiaries",
-      "Followed code review and delivery best practices across multiple sprint cycles",
+      "Engineered full-stack web interfaces and automation tooling in an Agile sprint workflow.",
+      "Improved operational efficiency for 10,000+ NGO beneficiaries.",
+      "Followed code review and delivery best practices across multiple sprint cycles.",
     ],
     type: "internship",
     image: "/experience/upscalemedia-transformed (2).png",
@@ -134,8 +169,7 @@ export default function Experience() {
           <span className="text-gradient">Experience</span>
         </h2>
         <p className="mt-4 text-lg text-white/40 font-light max-w-xl">
-          A track record of building exceptional digital products and leading
-          engineering teams.
+          Engineering impactful AI automation workflows, enterprise full-stack systems, and research pipelines.
         </p>
       </motion.div>
 

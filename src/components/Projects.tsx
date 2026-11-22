@@ -19,63 +19,63 @@ interface Project {
 const projects: Project[] = [
   {
     id: 1,
+    title: "FinSight",
+    description: "Full-Stack Java & React Financial Platform.\n\nBuilt a financial analytics app to track transactions, manage budgets, and visualize spending, with event-driven Kafka messaging, Jasypt AES-256 encryption, and JWT authentication.\n\nEnabled fault-tolerant 1,000-row bulk Excel imports using Resilience4j circuit breakers with zero data loss across 40+ REST API endpoints.",
+    tags: ["Java 17", "Spring Boot", "Hibernate", "React", "MySQL", "Kafka", "Docker", "Resilience4j", "AES-256", "JWT"],
+    categories: ["Full Stack"],
+    metric: "40+ REST APIs · Zero Data Loss",
+    color: "from-rose-500/20 to-pink-500/20",
+    year: "2025",
+    href: "https://github.com/shashankbaswa007/FinSight",
+    github: "https://github.com/shashankbaswa007/FinSight",
+  },
+  {
+    id: 2,
     title: "SmartStyle",
-    description: "A multi-LLM GenAI fashion platform with full-stack ownership end-to-end.\n\nI built the Next.js 14 frontend, Python/FastAPI API layer, Firebase Firestore backend, and Vertex AI integration with GitHub Actions CI/CD and Jest/Playwright test coverage — live with 20+ beta users and 85%+ satisfaction. Benchmarked Gemini 2.0 Flash vs. Groq Llama 3.3 70B; built evidence-based routing with response caching, reducing inference costs by 65%.",
-    tags: ["Python", "Next.js 14", "TypeScript", "Gemini 2.0 Flash", "Groq Llama 3.3 70B", "Firebase", "Vertex AI"],
+    description: "React Web App & Automated Testing Suite with multi-LLM GenAI architecture.\n\nCreated a web app that analyzes outfit photos to generate styling recommendations and color palettes; secured APIs with Zod validation, CORS, and rate limiting.\n\nCut vision extraction latency to under 10ms via client-side WebAssembly, with 60%+ test coverage across unit, component, and E2E layers and a 70% cache hit rate.",
+    tags: ["Next.js", "TypeScript", "Jest", "Playwright", "Firebase", "WebAssembly", "Zod", "Gemini 2.0 Flash"],
     categories: ["AI/ML", "Full Stack"],
-    metric: "85% satisfaction · 65% cost reduction",
+    metric: "<10ms Latency · 60%+ Test Coverage",
     color: "from-violet-500/20 to-fuchsia-500/20",
-    year: "Sept 2024",
+    year: "2024",
     href: "https://smart-style.vercel.app",
     github: "https://github.com/shashankbaswa007/SmartStyle",
   },
   {
-    id: 2,
+    id: 3,
     title: "HireLog",
-    description: "An Agentic RAG AI platform that helps students navigate unstructured placement interview data — 1st Place at CBIT National Hackathon.\n\nBuilt a full-stack AI product: Python/FastAPI backend exposing multi-agent RAG orchestration (LangChain + LangGraph + FAISS) as RESTful APIs. Integrated BM25 retrieval and cross-encoder reranking; benchmarked precision, recall, MRR, and latency — selected for institutional deployment to CBIT's Placement Department.",
-    tags: ["Python", "FastAPI", "LangChain", "LangGraph", "FAISS", "Docker", "Firebase"],
-    categories: ["AI/ML"],
+    description: "Search Platform & DevOps CI/CD (1st Place, CBIT Hackathon).\n\nDeveloped a collaborative platform that structures interview experiences into searchable questions and analytics dashboards.\n\nBuilt a CI/CD pipeline running Pytest suites, Playwright smoke tests, dependency audits, and CodeQL SAST on every commit; enforced RBAC and Redis sliding-window rate limiting.",
+    tags: ["FastAPI", "React", "GitHub Actions", "Pytest", "CodeQL SAST", "Redis", "RBAC", "Docker"],
+    categories: ["AI/ML", "Full Stack"],
     metric: "1st Place — National Hackathon",
     color: "from-sky-500/20 to-cyan-500/20",
-    year: "Feb 2024",
+    year: "2024",
     href: "https://hirelogapp.vercel.app/",
     github: "https://github.com/shashankbaswa007/HireLog",
   },
   {
-    id: 3,
+    id: 4,
     title: "Melanoma Detection System",
-    description: "A clinical diagnostic tool that classifies skin lesions with high confidence and transparency.\n\nUsing transfer learning, I fine-tuned EfficientNetB3 on a large, imbalanced dataset of dermoscopic images. I then deployed the model as an accessible web interface via Gradio and Hugging Face, returning a clear 4-tier risk score for each uploaded image to assist in preliminary screening.",
-    tags: ["TensorFlow", "EfficientNetB3", "Python", "Gradio", "Hugging Face"],
+    description: "Clinical diagnostic tool that classifies skin lesions with high confidence and transparency.\n\nUsing transfer learning, fine-tuned EfficientNetB3 on 10,000+ dermoscopic images with SHAP/LIME explainability. Deployed the clinical inference system on Hugging Face Spaces via Gradio with a 4-tier risk scoring system.",
+    tags: ["Python", "TensorFlow", "EfficientNetB3", "SHAP/LIME", "Gradio", "Hugging Face"],
     categories: ["AI/ML"],
     metric: "92% accuracy · 97% AUC",
     color: "from-amber-500/20 to-orange-500/20",
-    year: "March 2024",
+    year: "2024",
     href: "https://huggingface.co/spaces/shashankbaswa007/melanoma-skincancer-detector",
     github: "https://github.com/shashankbaswa007/melanoma-skin-cancer-detection-model",
   },
   {
-    id: 4,
+    id: 5,
     title: "SportsHub",
-    description: "A real-time full-stack tournament management platform with end-to-end product ownership.\n\nBuilt with live Firebase Firestore synchronisation, a Next.js 14 frontend, and Gemini AI features via Firebase Genkit — end-to-end product ownership across real-time data, auth, and LLM integration layers.",
-    tags: ["Next.js", "TypeScript", "Firebase Firestore", "Gemini via Firebase Genkit", "Real-Time DB"],
+    description: "A real-time tournament management platform with full-stack ownership across real-time data, auth, and LLM integration layers.\n\nBuilt with live Firebase Firestore synchronization, a Next.js 14 frontend, and Gemini AI features via Firebase Genkit.",
+    tags: ["Next.js", "TypeScript", "Firebase Firestore", "Gemini AI", "Real-Time DB"],
     categories: ["Full Stack"],
     metric: "Real-time sync · AI features",
     color: "from-emerald-500/20 to-teal-500/20",
-    year: "Oct 2024",
+    year: "2024",
     href: "https://trysportshub.vercel.app",
     github: "https://github.com/shashankbaswa007/SportsHub",
-  },
-  {
-    id: 5,
-    title: "FinSight",
-    description: "A secure financial tracker designed to automatically flag transaction anomalies.\n\nI designed a Java Spring Boot backend featuring over 40 robust REST APIs secured with JWT authentication. The data layer utilizes MySQL, and the entire ecosystem is containerized via Docker with a strict CI/CD pipeline, ensuring a resilient architecture that effectively reduces financial discrepancies in production.",
-    tags: ["Java", "Spring Boot", "React", "MySQL", "Docker"],
-    categories: ["Full Stack"],
-    metric: "40+ REST APIs · 85% test coverage",
-    color: "from-rose-500/20 to-pink-500/20",
-    year: "March 2025",
-    href: "https://github.com/shashankbaswa007/FinSight",
-    github: "https://github.com/shashankbaswa007/FinSight",
   },
 ];
 
@@ -108,7 +108,7 @@ export default function Projects() {
           <span className="text-gradient">Projects</span>
         </h2>
         <p className="mt-4 text-lg text-white/40 font-light max-w-xl">
-          Systems and applications engineered for performance, scale, and intelligence.
+          Systems and applications engineered for performance, scale, reliability, and intelligence.
         </p>
       </motion.div>
 
@@ -187,7 +187,7 @@ const ProjectCard = memo(function ProjectCard({ project }: { project: Project })
           WebkitMask: "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
           WebkitMaskComposite: "xor",
           maskComposite: "exclude",
-          padding: "1px" // 1px glowing border
+          padding: "1px"
         }}
       />
 
@@ -222,7 +222,6 @@ const ProjectCard = memo(function ProjectCard({ project }: { project: Project })
                 </a>
               )}
               <div className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center group-hover:border-white/30 group-hover:bg-white/10 transition-all duration-300 bg-black/20 backdrop-blur-md">
-                {/* Custom modern arrow icon */}
                 <svg width="14" height="14" viewBox="0 0 14 14" fill="none" className="text-white/40 group-hover:text-white/90 transition-all duration-300">
                   <path d="M1.16669 12.8333L12.8334 1.16667M12.8334 1.16667H2.33335M12.8334 1.16667V11.6667" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>

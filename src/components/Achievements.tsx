@@ -18,10 +18,10 @@ interface Achievement {
 const achievements: Achievement[] = [
   {
     id: 1,
-    title: "Placement Coordinator & Events Head",
-    subtitle: "CBIT AI & DS Dept. · Aug 2024 – Present",
+    title: "Placement Coordinator",
+    subtitle: "AI & DS Dept., CBIT · Aug 2024 – Present",
     description:
-      "Led AI4Impact hackathon (100+ teams); coordinated Amazon, Barclays, Deloitte & Hartford campus drives; mentored 20+ students to 90% internship-placement rate.",
+      "Placement Coordinator (AI & DS Dept., CBIT) – led technical presentations, coordinated with hiring teams and campus drives, and mentored 100+ students.",
     icon: (
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
@@ -31,14 +31,29 @@ const achievements: Achievement[] = [
       </svg>
     ),
     accent: "from-violet-500/20 via-fuchsia-500/10 to-transparent",
-    tags: ["Leadership", "Campus Drives", "Mentorship", "100+ Teams"],
+    tags: ["Placement Coordinator", "100+ Mentored", "Technical Leadership", "CBIT"],
   },
   {
     id: 2,
+    title: "370+ DSA Problems Solved",
+    subtitle: "300 LeetCode · 70+ HackerRank",
+    description:
+      "370+ DSA problems solved (300 LeetCode, 70+ HackerRank) with strong command over algorithms, data structures, complexity analysis, and competitive programming.",
+    icon: (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <polyline points="16 18 22 12 16 6" />
+        <polyline points="8 6 2 12 8 18" />
+      </svg>
+    ),
+    accent: "from-rose-500/20 via-pink-500/10 to-transparent",
+    tags: ["370+ Solved", "300 LeetCode", "70+ HackerRank", "Algorithms"],
+  },
+  {
+    id: 3,
     title: "1st Place — CBIT National Hackathon",
     subtitle: "50+ competing teams",
     description:
-      "Built HireLog, an Agentic RAG AI platform for semantic interview search, winning first place and earning selection for institutional deployment to CBIT's Placement Department.",
+      "1st Place CBIT National Hackathon (50+ teams) — Built HireLog search platform with CI/CD, Pytest suites, Playwright tests, and CodeQL SAST, earning institutional selection.",
     icon: (
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5C7 4 7 7 7 7" />
@@ -50,28 +65,28 @@ const achievements: Achievement[] = [
       </svg>
     ),
     accent: "from-amber-500/20 via-yellow-500/10 to-transparent",
-    tags: ["1st Place", "National", "AI/ML", "RAG"],
+    tags: ["1st Place", "50+ Teams", "National Hackathon", "HireLog"],
   },
   {
-    id: 3,
-    title: "Top 5 — Mahindra University Hackathon",
+    id: 4,
+    title: "Top 5 — Mahindra Hackathon",
     subtitle: "Inter-university competition",
     description:
-      "Placed in the top 5 at a competitive inter-university hackathon, demonstrating strong problem-solving and rapid prototyping skills.",
+      "Top 5 Mahindra Hackathon — demonstrated exceptional rapid prototyping, architecture, and high-pressure problem solving.",
     icon: (
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
       </svg>
     ),
     accent: "from-sky-500/20 via-cyan-500/10 to-transparent",
-    tags: ["Top 5", "Inter-University", "Hackathon"],
+    tags: ["Top 5", "Mahindra Hackathon", "Inter-University"],
   },
   {
-    id: 4,
+    id: 5,
     title: "Dean's List — All Semesters",
-    subtitle: "GPA 9.03/10.0 · Top 10%",
+    subtitle: "GPA: 9.03/10.0 · Top 10%",
     description:
-      "Consistently ranked in the top 10% of the class across all semesters, earning Dean's List recognition for sustained academic excellence.",
+      "GPA: 9.03/10.0 · Dean’s List, Top 10% all semesters in B.E. Artificial Intelligence & Data Science at CBIT. Strong foundations across OOP, DBMS, Data Structures, Algorithms, and OS.",
     icon: (
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
@@ -79,22 +94,7 @@ const achievements: Achievement[] = [
       </svg>
     ),
     accent: "from-emerald-500/20 via-teal-500/10 to-transparent",
-    tags: ["Top 10%", "9.03 GPA", "Academic Excellence"],
-  },
-  {
-    id: 5,
-    title: "250+ DSA Problems",
-    subtitle: "LeetCode & HackerRank",
-    description:
-      "Quality-focused problem solving across data structures, algorithms, and competitive programming — building a strong foundation for technical interviews.",
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <polyline points="16 18 22 12 16 6" />
-        <polyline points="8 6 2 12 8 18" />
-      </svg>
-    ),
-    accent: "from-rose-500/20 via-pink-500/10 to-transparent",
-    tags: ["LeetCode", "HackerRank", "DSA", "250+"],
+    tags: ["9.03 GPA", "Dean's List", "Top 10%", "CBIT"],
   },
   {
     id: 6,
@@ -112,7 +112,7 @@ const achievements: Achievement[] = [
       </svg>
     ),
     accent: "from-indigo-500/20 via-violet-500/10 to-transparent",
-    tags: ["Research", "Peer-Reviewed", "AI Publication"],
+    tags: ["Research", "Peer-Reviewed", "AI & Data Science"],
   },
 ];
 
@@ -132,8 +132,6 @@ const cardVariants = {
     transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] as const },
   },
 };
-
-/* ── Component ────────────────────────────────────────────────────── */
 
 export default function Achievements() {
   return (
@@ -162,7 +160,7 @@ export default function Achievements() {
           <span className="text-gradient">Achievements</span>
         </h2>
         <p className="mt-4 text-lg text-white/40 font-light max-w-xl">
-          Leadership roles, competitive wins, and academic milestones that define my journey.
+          Leadership roles, competitive wins, algorithmic mastery, and academic honors.
         </p>
       </motion.div>
 
@@ -181,8 +179,6 @@ export default function Achievements() {
     </section>
   );
 }
-
-/* ── Card ─────────────────────────────────────────────────────────── */
 
 const AchievementCard = memo(function AchievementCard({ item }: { item: Achievement }) {
   const [mouseX, setMouseX] = useState(0);
@@ -239,7 +235,7 @@ const AchievementCard = memo(function AchievementCard({ item }: { item: Achievem
           <div className="w-14 h-14 rounded-2xl bg-white/[0.04] border border-white/[0.06] flex items-center justify-center text-white/50 group-hover:text-white/90 group-hover:border-white/15 group-hover:bg-white/[0.08] transition-all duration-300 shadow-lg backdrop-blur-md">
             {item.icon}
           </div>
-          <span className="text-[11px] text-white/30 font-mono tabular-nums tracking-wider bg-white/[0.03] px-3 py-1.5 rounded-full border border-white/5 max-w-[160px] text-right leading-tight">
+          <span className="text-[11px] text-white/30 font-mono tabular-nums tracking-wider bg-white/[0.03] px-3 py-1.5 rounded-full border border-white/5 max-w-[170px] text-right leading-tight">
             {item.subtitle}
           </span>
         </div>

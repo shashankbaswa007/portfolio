@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 240" width="100%" height="100%">
+  <defs>
+    <linearGradient id="alteraGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0071C5"/>
+      <stop offset="50%" stop-color="#00C7FD"/>
+      <stop offset="100%" stop-color="#0068B5"/>
+    </linearGradient>
+    <linearGradient id="latticeGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00C7FD"/>
+      <stop offset="100%" stop-color="#0071C5"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Geometric FPGA / Silicon Lattice Emblem -->
+  <g transform="translate(60, 40)">
+    <!-- Outer diamond / crystal structure representing FPGA programmable logic blocks -->
+    <path d="M 80 0 L 160 80 L 80 160 L 0 80 Z" fill="none" stroke="url(#alteraGrad)" stroke-width="8" stroke-linejoin="round"/>
+    
+    <!-- Inner segmented matrix logic elements -->
+    <path d="M 80 30 L 130 80 L 80 130 L 30 80 Z" fill="rgba(0, 199, 253, 0.08)" stroke="url(#latticeGrad)" stroke-width="5" stroke-linejoin="round"/>
+    
+    <!-- Central core processor diamond -->
+    <polygon points="80,56 104,80 80,104 56,80" fill="url(#alteraGrad)"/>
+    
+    <!-- Interconnect nodes -->
+    <circle cx="80" cy="0" r="6" fill="#00C7FD"/>
+    <circle cx="160" cy="80" r="6" fill="#00C7FD"/>
+    <circle cx="80" cy="160" r="6" fill="#0071C5"/>
+    <circle cx="0" cy="80" r="6" fill="#0071C5"/>
+    <circle cx="80" cy="80" r="4" fill="#FFFFFF"/>
+  </g>
+
+  <!-- Wordmark "altera" -->
+  <g transform="translate(260, 125)">
+    <text font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif" font-size="82" font-weight="700" fill="#FFFFFF" letter-spacing="-1.5">
+      altera
+    </text>
+  </g>
+
+  <!-- Descriptor "An Intel Company" -->
+  <g transform="translate(265, 168)">
+    <text font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif" font-size="20" font-weight="400" fill="#00C7FD" letter-spacing="4">
+      AN INTEL COMPANY
+    </text>
+  </g>
+</svg>
